@@ -5,7 +5,7 @@
  * Date: 10/15/15
  * Time: 15:19
  */
-use yii\helpers\url;
+use yii\helpers\Url;
 use yii\helpers\Html;
 
 ?>
