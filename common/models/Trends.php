@@ -68,7 +68,7 @@ class Trends extends Models
         $model = self::find()->andWhere(['status'=>1])->orderBy('id desc')->all();
         if($model){
             foreach($model as $value){
-                if(count($data[$value->type]) >= $limit){
+                if(count(@$data[$value->type]) >= $limit){
                     continue;
                 }
                 $data[$value->type][] = $value->attributes;
