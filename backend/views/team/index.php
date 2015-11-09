@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' =>function ($model) {
                     return $model->status_list[$model->status];
                 },
-                'filter' => $model->status_list
+                'filter' => [0=>'无效',1=>'有效',]
             ],
 
             [   'class' => 'yii\grid\ActionColumn',
