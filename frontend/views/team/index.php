@@ -54,11 +54,13 @@ use yii\helpers\Url;
         <ul>
             <?php if($data && isset($data[2])){ foreach($data[2] as $value){?>
             <li>
-                <img src="<?=Url::to([$value[img]]);?>" width="170">
-                <p><?=$value[username]?></p>
+                <a href="<?=Url::to(['team/detail','id'=>$value['id'],'type'=>1]);?>">
+                <img src="<?=Url::to([$value['img']]);?>" width="170">
+                <p><?=$value['username']?></p>
                 <div class="syn_info">
-                    <?=$value[desc];?>
+                    <?=$value['desc'];?>
                 </div>
+                </a>
             </li>
             <?php }}?>
         </ul>
@@ -72,11 +74,11 @@ use yii\helpers\Url;
         <ul>
             <?php if($data && isset($data[1])){ foreach($data[1] as $value){?>
                 <li>
-                    <a href="<?=Url::to(['team/detail','id'=>$value[id],'type'=>1]);?>">
-                    <img src="<?=Url::to([$value[img]]);?>" width="170" height="206">
-                    <p><?=$value[username];?></p>
+                    <a href="<?=Url::to(['team/detail','id'=>$value['id'],'type'=>1]);?>">
+                    <img src="<?=Url::to([$value['img']]);?>" width="170" height="206">
+                    <p><?=$value['username'];?></p>
                     <div class="syn_info">
-                        <?=$value[desc];?>
+                        <?=$value['desc'];?>
                     </div>
                     </a>
                 </li>
