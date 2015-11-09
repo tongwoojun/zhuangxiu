@@ -9,12 +9,9 @@ namespace common\con;
 use Yii;
 use yii\web\Controller;
 
-
 use common\models\Key;
 use common\models\Menus;
 use common\models\Adslist;
-
-
 
 class FrontendController extends Controller
 {
@@ -67,10 +64,6 @@ class FrontendController extends Controller
 
     #获取广告信息
     public function getAD(){
-
-        $data = Adslist::getData();
-        var_dump($data);
-        return;
         //TODO ads
         $data = $this->cache->get("ads");
         if(!$data){

@@ -59,7 +59,7 @@ AppAsset::register($this);
         <div class="p_w">
             <ul>
                 <?php if($this->params['memus']){foreach ($this->params['memus'] as $key => $value) { ?>
-                <li><a href="<?=Url::to([$value['url']]);?>" class="<?=($value['active']==true)?'active':'';?>"><span><?=$value['name'];?></span></a></li>
+                <li><a href="<?=Url::to([$value['url']]);?>" class="<?=(@$value['active']==true)?'active':'';?>"><span><?=$value['name'];?></span></a></li>
                 <?php }} ?>　　　　　　　　　　
             </ul>
             
