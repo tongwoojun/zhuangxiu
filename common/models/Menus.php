@@ -14,6 +14,8 @@ use Yii;
  * @property string $url
  * @property integer $sort 
  * @property integer $status
+ * @property string $keywords
+ * @property string $description
  */
 class Menus extends \yii\db\ActiveRecord
 {
@@ -22,7 +24,7 @@ class Menus extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'menus';
+        return 'zx_menus';
     }
 
     /**
@@ -34,6 +36,8 @@ class Menus extends \yii\db\ActiveRecord
             [['type', 'fid', 'sort', 'status'], 'integer'],
             [['name'], 'required'],
             [['name', 'url'], 'string', 'max' => 50],
+            [['keywords'], 'string', 'max' => 100],
+            [['description'], 'string', 'max' => 225],
         ];
     }
 
@@ -50,6 +54,8 @@ class Menus extends \yii\db\ActiveRecord
             'url' => '地址',
             'sort' => '排序',
             'status' => '状态',
+            'keywords' => 'Keywords',
+            'description' => 'Description',
         ];
     }
 }

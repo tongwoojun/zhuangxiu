@@ -4,10 +4,13 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Team;
-use yii\data\ActiveDataProvider;
+use common\models\TeamImg;
+use backend\models\TeamSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
+use yii\data\ActiveDataProvider;
 
 use yii\web\UploadedFile;
 
@@ -34,11 +37,10 @@ class TeamController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Team::find(),
-        ]);
-
+        $searchModel = new TeamSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -50,8 +52,14 @@ class TeamController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $dataProvider = new ActiveDataProvider([
+            'query' => TeamImg::find()->andWhere(['tid'=>$model->id,'status'=>1])->orderBy('id desc'),
+        ]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'dataProvider'=>$dataProvider
         ]);
     }
 
@@ -65,6 +73,9 @@ class TeamController extends Controller
         $model = new Team();
 
         if ($model->load(Yii::$app->request->post())) {
+            if($model->rec){
+                $model->rec = implode(',',$model->rec);
+            }
             $is_upload = true;
             $img = UploadedFile::getInstance($model, 'img');
             $model->img = 'uploads/img/' . time() . '.' . $img->extension;
@@ -93,6 +104,9 @@ class TeamController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
+            if($model->rec){
+                $model->rec = implode(',',$model->rec);
+            }
             $is_upload = true;
             $img = UploadedFile::getInstance($model, 'img');
             $model->img = $model->oldAttributes['img'];
@@ -104,6 +118,10 @@ class TeamController extends Controller
             if($is_upload && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
+        }
+
+        if($model->rec){
+            $model->rec = explode(',',$model->rec);
         }
 
         return $this->render('update', [

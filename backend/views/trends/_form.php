@@ -16,6 +16,9 @@ use yii\widgets\ActiveForm;
         <div class="col-lg-4">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-lg-4">
+            <?= $form->field($model, 'short_title')->textInput(['maxlength' => true]) ?>
+        </div>
 
         <div class="col-lg-2">
             <?= $form->field($model, 'type')->dropDownList($model->type_list,['prompt' => '请选择']); ?>
@@ -26,12 +29,21 @@ use yii\widgets\ActiveForm;
         <div class="col-lg-6">
             <?php
             if(!$model->isNewRecord){
-                echo Html::img("./../../../../frontend/web".$model->img, ['width' => 120,'height' => 120]);
+                echo Html::img(Yii::$app->params['imgurl']  .$model->img, ['width' => 120,'height' => 120]);
                 echo "<br>";
-                echo $form->field($model, 'img')->fileInput();
-            }else {
-                echo $form->field($model, 'img')->fileInput();
-            }?>
+            }
+            echo $form->field($model, 'img')->fileInput();
+            ?>
+        </div>
+
+        <div class="col-lg-6">
+            <?php
+            if(!$model->isNewRecord){
+                echo Html::img(Yii::$app->params['imgurl'] .$model->short_img, ['width' => 120,'height' => 120]);
+                echo "<br>";
+            }
+            echo $form->field($model, 'short_img')->fileInput();
+            ?>
         </div>
     </div>
 

@@ -10,12 +10,14 @@ use yii\helpers\Url;
 
     <div class="new_main">
         <dl class="in_news_list border-all">
-            <dt>
-                <a href="#">
-                    <img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img07.jpg" width="420" height="300" />
-                    <span>20年路程，20年传承</span>
-                </a>
-            </dt>
+            <?php if(isset(Yii::$app->view->params['ads'][14])){ ?>
+                <dt>
+                    <a href="<?=Yii::$app->view->params['ads'][14][0]['url'];?>"  target="_blank">
+                        <img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][14][0]['img'];?>" width="420" height="300" />
+                        <span><?=Yii::$app->view->params['ads'][14][0]['name'];?></span>
+                    </a>
+                </dt>
+            <?php }?>
             <dd>
                 <ul>
                     <?php if(isset($data['1'])){foreach($data['1'] as $key=>$value){ if($key>5){ continue;}?>
@@ -37,7 +39,7 @@ use yii\helpers\Url;
 
     <div class="new_channel fl">
         <div class="in_module_title">
-            <span>新闻报道</span>
+            <span><a href="<?=Url::to(['list','type'=>2]);?>">新闻报道</a></span>
         </div>
         <ul>
             <?php if(isset($data['2'])){foreach($data['2'] as $key=>$value){ if($key>3){ continue;}?>
@@ -54,7 +56,7 @@ use yii\helpers\Url;
         </div>
         <div class="new_fxzs_box">
             <div class="new_fxzs_list border-all">
-                <h2 class="new_fxzs_title">◆ 装修攻略</h2>
+                <h2 class="new_fxzs_title"><a href="<?=Url::to(['list','type'=>3]);?>">◆ 装修攻略</a></h2>
                 <ul>
                     <?php if(isset($data['3'])){foreach($data['3'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
@@ -64,7 +66,7 @@ use yii\helpers\Url;
                 </ul>
             </div>
             <div class="new_fxzs_list border-all">
-                <h2 class="new_fxzs_title">◆ 材料选购</h2>
+                <h2 class="new_fxzs_title"><a href="<?=Url::to(['list','type'=>4]);?>">◆ 材料选购</a></h2>
                 <ul>
                     <?php if(isset($data['4'])){foreach($data['4'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
@@ -74,7 +76,7 @@ use yii\helpers\Url;
                 </ul>
             </div>
             <div class="new_fxzs_list border-all">
-                <h2 class="new_fxzs_title">◆ 家具布置</h2>
+                <h2 class="new_fxzs_title"><a href="<?=Url::to(['list','type'=>5]);?>">◆ 家具布置</a></h2>
                 <ul>
                     <?php if(isset($data['5'])){foreach($data['5'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
@@ -84,7 +86,7 @@ use yii\helpers\Url;
                 </ul>
             </div>
             <div class="new_fxzs_list border-all">
-                <h2 class="new_fxzs_title">◆ 家居风水</h2>
+                <h2 class="new_fxzs_title"><a href="<?=Url::to(['list','type'=>6]);?>">◆ 家居风水</a></h2>
                 <ul>
                     <?php if(isset($data['6'])){foreach($data['6'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>

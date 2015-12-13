@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
             <?php
             if(!$model->isNewRecord){
                 if($model->img) {
-                    echo Html::img("./../../../../frontend/web" . $model->img, ['height' => 120]);
+                    echo Html::img(Yii::$app->params['imgurl'] . $model->img, ['height' => 120]);
                     echo "<br>";
                 }
                 echo $form->field($model, 'img')->fileInput();

@@ -18,7 +18,7 @@ class PackageSearch extends Package
     public function rules()
     {
         return [
-            [['id', 'sort', 'views', 'status'], 'integer'],
+            [['id', 'sort', 'views', 'is_rec', 'status'], 'integer'],
             [['title', 'img', 'stitle', 'atitle', 'content', 'time'], 'safe'],
         ];
     }
@@ -41,7 +41,7 @@ class PackageSearch extends Package
      */
     public function search($params)
     {
-        $query = Package::find()->orderBy('sort');
+        $query = Package::find()->orderBy('id desc');
 
         // add conditions that should always apply here
 
@@ -63,6 +63,8 @@ class PackageSearch extends Package
             'sort' => $this->sort,
             'views' => $this->views,
             'time' => $this->time,
+            'is_rec' => $this->is_rec,
+            'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

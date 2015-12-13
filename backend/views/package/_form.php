@@ -26,12 +26,11 @@ use yii\widgets\ActiveForm;
         <div class="col-lg-6">
             <?php
             if(!$model->isNewRecord){
-                echo Html::img("./../../frontend/web".$model->img, ['width' => 120,'height' => 120]);
+                echo Html::img(Yii::$app->params['imgurl'].$model->img, ['width' => 362,'height' => 227,'id'=>'img']);
                 echo "<br>";
-                echo $form->field($model, 'img')->fileInput();
-            }else {
-                echo $form->field($model, 'img')->fileInput();
-            }?>
+            }
+            echo $form->field($model, 'img')->fileInput()->hint('图片属性：jpg, png, gif;大小不超过1M;362长*227宽');
+            ?>
         </div>
     </div>
 
@@ -42,21 +41,24 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="row">
-        <div class="col-lg-8">
-            <?= $form->field($model, 'content')->textarea(['rows' => '6']) ?>
+        <div class="col-lg-11">
+            <?= $form->field($model, 'content')->widget("pjkui\kindeditor\KindEditor",['clientOptions'=>['allowFileManager'=>'true','allowUpload'=>'true']]) ?>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-2">
             <?= $form->field($model, 'sort')->textInput() ?>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-2">
             <?= $form->field($model, 'views')->textInput() ?>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-2">
+            <?= $form->field($model, 'is_rec')->dropDownList($model->rec_list,['prompt' => '请选择'])->hint('此选项针对首页推荐'); ?>
+        </div>
+        <div class="col-lg-2">
             <?= $form->field($model, 'status')->dropDownList($model->status_list,['prompt' => '请选择']); ?>
         </div>
     </div>

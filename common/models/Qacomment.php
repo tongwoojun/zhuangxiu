@@ -15,7 +15,7 @@ use Yii;
  * @property string $time
  * @property integer $status
  */
-class Qacomment extends \yii\db\ActiveRecord
+class Qacomment extends Models
 {
     public $type_list = [1=>'提问',2=>'回答'];
     /**
@@ -23,7 +23,7 @@ class Qacomment extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'qa_comment';
+        return 'zx_qa_comment';
     }
 
     /**
@@ -52,7 +52,7 @@ class Qacomment extends \yii\db\ActiveRecord
             'ip' => 'Ip',
             'type' => '类型',
             'comment' => '评论',
-            'time' => 'Time',
+            'time' => '时间',
             'status' => '状态',
         ];
     }

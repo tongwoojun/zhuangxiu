@@ -23,15 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id'
-            [
-                'label' => '用户',
-                'filter' => Html::activeTextInput($searchModel, 'username', ['class' => 'form-control']),
-                'format' => 'raw',
-                'value' => function ($data) {
-                    return $data->user->username;
-                },
-            ],
+            'name',
             [
                 'attribute' => 'question',
                 'value'=> function($data){return StringHelper::truncate($data->question,8);},
@@ -50,18 +42,39 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'rec',
                 'filter' =>$searchModel->rec_list,
-                'value'=> function($data){return $data->rec_list[$data->rec];},
+                'value'=> function($data){
+                    if(empty($data->rec)){
+                        return;
+                    }
+                    $rec = explode(',',$data->rec);
+                    foreach($rec as $value){
+                        $result .= $data->rec_list[$value].',';
+                    }
+                    return $result;
+                },
             ],
             [
                 'label' => '留言记录',
                 'filter' => false,
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return Html::a('<span class="glyphicon glyphicon-transfer"></span>', ['qa/send','id'=>$data->id], ['title' => '回复']);
+                    return Html::a('<span class="glyphicon glyphicon-transfer"></span>', ['qacomment/index','QacommentSearch[qid]'=>$data->id], ['title' => '回复']);
                 },
             ],
 
-            [ 'class' => 'yii\grid\ActionColumn']
+            [   'class' => 'yii\grid\ActionColumn',
+                'template' => '{file} {view} {update} {delete}',
+                'buttons' => [
+                    'file' => function ($url,$data) {
+                        $options = [
+                            'title' => '预览',
+                            'target'=>"_blank"
+                        ];
+                        $url = Yii::$app->params['siteurl'].'qa/detail/'.$data->id;
+                        return Html::a('<span class="glyphicon glyphicon-file"></span>', $url, $options);
+                    },
+                ]
+            ],
         ],
     ]); ?>
 

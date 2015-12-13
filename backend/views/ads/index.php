@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'type',
                 'filter' =>$searchModel->getTypeList(),
-                'value'=> function($data){return $data->getTypeList($data->type);},
+                'value'=> function($data){return $data->key->name;},
             ],
             'title',
             [
@@ -41,14 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'status',
                 'filter' =>$searchModel->status_list,
                 'value'=> function($data){return $data->status_list[$data->status];},
-            ],
-            [
-                'label' => '查看广告列表',
-                'filter' => false,
-                'format' => 'raw',
-                'value' => function ($data) {
-                    return Html::a('<span class="glyphicon glyphicon-list"></span>查看广告', ['adslist/index','AdslistSearch[aid]'=>$data->id], ['title' => '广告列表']);
-                },
             ],
 
             ['class' => 'yii\grid\ActionColumn'],

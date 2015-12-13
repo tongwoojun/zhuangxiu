@@ -54,7 +54,7 @@ use yii\helpers\Url;
         <ul>
             <?php if($data && isset($data[2])){ foreach($data[2] as $value){?>
             <li>
-                <a href="<?=Url::to(['team/detail','id'=>$value['id'],'type'=>1]);?>">
+                <a href="<?=Url::to(['team/detail','id'=>$value['id'],'type'=>2]);?>">
                 <img src="<?=Url::to([$value['img']]);?>" width="170">
                 <p><?=$value['username']?></p>
                 <div class="syn_info">

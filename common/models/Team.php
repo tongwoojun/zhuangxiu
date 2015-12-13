@@ -21,13 +21,14 @@ use Yii;
  */
 class Team extends Models
 {
+    public $rec_list = [1=>'人气榜'];
     public $type_list = [1=>'队长',2=>'设计师'];
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'team';
+        return 'zx_team';
     }
 
     /**
@@ -36,12 +37,21 @@ class Team extends Models
     public function rules()
     {
         return [
-            [['username', 'type', 'age','img', 'from', 'desc'], 'required'],
+            [['username', 'type', 'age', 'from', 'desc'], 'required'],
             [['age', 'stars1', 'stars2', 'stars3', 'stars4', 'status'], 'integer'],
             [['img'], 'file', 'extensions' => 'jpeg,gif,jpg,png' ,'mimeTypes' => 'image/jpeg,image/gif,image/jpg,image/png'],
             [['username'], 'string', 'max' => 5],
-            [['from'], 'string', 'max' => 10],
+            [['from','rec'], 'string', 'max' => 10],
             [['img', 'desc'], 'string', 'max' => 255],
+            ['img', 'required', 'when' => function ($model) {return $model->isNewRecord;},
+                'whenClient' => "function (attribute, value) {
+                                    obj = document.getElementById('img');
+                                    if(obj){
+                                        return false ;
+                                    }else{
+                                        return true;
+                                    }
+                                 }"],
         ];
     }
 
@@ -63,6 +73,7 @@ class Team extends Models
             'stars3' => '施工效率',
             'stars4' => '施工质量',
             'status' => '状态',
+            'rec'=>'推荐'
         ];
     }
 
@@ -77,8 +88,7 @@ class Team extends Models
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTeamImgs()
-    {
+    public function getTeamImgs(){
         return $this->hasMany(TeamImg::className(), ['tid' => 'id']);
     }
 
@@ -94,5 +104,16 @@ class Team extends Models
             }
         }
         return $data;
+    }
+
+    public function getRec($rec){
+        if(empty($rec)){
+            return;
+        }
+        $rec = explode(',',$rec);
+        foreach($rec as $value){
+            $result .= $this->rec_list[$value].',';
+        }
+        return $result;
     }
 }

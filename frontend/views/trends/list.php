@@ -7,6 +7,7 @@
  */
 use yii\widgets\ListView;
 use yii\widgets\LinkPager;
+use yii\helpers\Url;
 ?>
 <?php
 /* @var $this yii\web\View */
@@ -15,7 +16,7 @@ use yii\widgets\LinkPager;
     <div class="place">
         <a href="<?=Url::to(['site/index']);?>">首页</a>
         <a href="<?=Url::to(['trends/index']);?>">佳园动态</a>
-        <span>列表</span>
+        <span><?=$title;?></span>
     </div>
     <div class="con_left fl">
         <div class="knowledge_info border-all">

@@ -74,9 +74,12 @@ class TrendsController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $img = UploadedFile::getInstance($model, 'img');
+            $short_img = UploadedFile::getInstance($model, 'short_img');
             $model->img = "/uploads/qa/qa_" . time() . '.' . $img->extension;
+            $model->short_img = "/uploads/qa/qas_" . time() . '.' . $short_img->extension;
             if ($model->save()) {
                 $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+                $img->saveAs(Yii::$app->params['uploadDir'].$model->short_img);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
@@ -98,9 +101,14 @@ class TrendsController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->img = $model->oldAttributes['img'];
+            $model->short_img = $model->oldAttributes['img'];
             $img = UploadedFile::getInstance($model, 'img');
+            $short_img = UploadedFile::getInstance($model, 'short_img');
             if($img){
                 $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+            }
+            if($short_img){
+                $short_img->saveAs(Yii::$app->params['uploadDir'].$model->short_img);
             }
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);

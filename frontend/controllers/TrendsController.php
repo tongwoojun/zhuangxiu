@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Trends;
 use common\con\FrontendController;
+use yii\data\ActiveDataProvider;
 
 class TrendsController extends FrontendController{
 
@@ -16,14 +17,19 @@ class TrendsController extends FrontendController{
         return $this->render('index',['data'=>$data]);
     }
 
-    public function actionList(){
+    public function actionList($type){
         $dataProvider = new ActiveDataProvider([
-            'query' => Trends::find()->where(['status'=>1])->orderBy('id desc'),
+            'query' => Trends::find()->where(['status'=>1,'type'=>$type])->orderBy('id desc'),
             'pagination' => [
                 'pageSize' => 10,
             ],
         ]);
-        return $this->render('list',['dataProvider'=>$dataProvider]);
+        if($dataProvider->models){
+            $title = $dataProvider->models[0]->type_list[$type];
+        }
+
+
+        return $this->render('list',['title'=>$title,'dataProvider'=>$dataProvider]);
     }
 
     public function actionDetail($id){

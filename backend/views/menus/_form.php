@@ -31,6 +31,9 @@ if(isset($type_list[$type])){
 
     <?= $form->field($model, 'status')->dropDownList(['1' => '有效', '0' => '无效']); ?>
 
+    <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '创建' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

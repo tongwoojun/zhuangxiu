@@ -20,7 +20,7 @@ use yii\widgets\LinkPager;
                 <li>
                     <div class="secc_lihd mb20"><?=$model->question;?></div>
                     <div class="ask_sub_info">
-                        <span>提问用户：<?=$model->user->username;?></span>
+                        <span>提问用户：<?=$model->name;?></span>
                         <span>浏览次数：<?=intval($model->views);?></span>
                         <span>提问时间：<?=$model->time;?></span>
                     </div>

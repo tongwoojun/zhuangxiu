@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Team */
 
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-            'img',
+            ['label'=>'缩略图','format'=>'raw','value'=>Html::img(Yii::$app->params['imgurl'].$model->img,['alt' => '缩略图','width' => 80])],
             'age',
             'from',
             'desc',
@@ -37,9 +37,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'stars2',
             'stars3',
             'stars4',
-            'status',
             ['attribute' => 'status', 'value' =>$model->status_list[$model->status]],
+            'rec',
+            ['label'=>'推荐','format'=>'raw','value'=>$model->getRec($model->rec)],
         ],
     ]) ?>
+
+    <div class="bs-example" data-example-id="simple-thumbnails">
+        <div class="row">
+            <?= ListView::widget([
+                'dataProvider' => $dataProvider,
+                'layout'=> '{items}',
+                'itemView' => '_item',//子视图
+                'emptyText'=>'查询结果数据为空',
+            ]);
+            ?>
+        </div>
+    </div>
+    <?= Html::a('添加图片', ['teamimg/create', 'tid' => $model->id], ['class' => 'btn btn-success']) ?>
 
 </div>

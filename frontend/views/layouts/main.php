@@ -14,6 +14,11 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    $url = Yii::$app->controller->id.'/index';
+    $this->metaTags[]='<meta name="keywords" content="'.$this->params['memus'][$url]['keywords'].'"/>';
+    $this->metaTags[]='<meta name="description" content="'.$this->params['memus'][$url]['description'].'"/>';
+    ?>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -21,12 +26,24 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="header">
+    <?php if(isset(Yii::$app->view->params['ads'][1])){?>
     <div class="p_w">
-        <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img01.jpg" width="1200" style="display:block;" /></a>
+        <?php foreach(Yii::$app->view->params['ads'][1] as $value){?>
+        <a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1200" style="display:block;" alt ="<?=Url::to($value['name']);?>"/></a>
+        <?php }?>
     </div>
+    <?php } ?>
     <div class="top_nav f14">
         <div class="p_w">
-            <span class="fr tn-person-r"><a href="#">登录</a> <a href="#">注册</a><a href="javascript:void(0);" onclick="Addme()">收藏本站</a>
+            <span class="fr tn-person-r">
+                <?php if(Yii::$app->user->isGuest){?>
+                <a href="<?=Url::to(['site/login']);?>">登录</a>
+                <a href="<?=Url::to(['site/signup']);?>">注册</a>
+                <?php }else{?>
+                    欢迎，<?=Yii::$app->user->identity->username;?>
+                    <a href="<?=Url::to(['site/logout']);?>">退出</a>
+                <?php }?>
+                <a href="javascript:void(0);" onclick="Addme()">收藏本站</a>
                 <font class="f_e7340c pl40">翻新热线：400-820-3213</font>  （09:30-18:00）</span>
             <span>
                 <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/wx.png" width="16" /></a>
@@ -37,22 +54,23 @@ AppAsset::register($this);
     <div class="p_w">
         <div class="top_sub pr">
             <a href="#" class="logo pa"></a>
-            <div class="search_combobox pa">
-                <div class="search_box_tabs" onmouseover="signTitles(true)" onmouseout="signTitles(false)">
-                    <span class="search_box_tips" id="query_filde" value="1">装修新闻</span>
-                    <ul class="J-search-box_tabs" style="display: none;">
-                        <li>
-                            <a href="javascript:void(0);" value="1">装修新闻</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" value="2">装修套餐</a>
-                        </li>
-                    </ul>
+            <form action="<?=Url::to(['site/search'])?>" method="get" id="search" <?php if(Yii::$app->requestedRoute != 'site/search'){?>target="_blank" <?php }?>>
+                <div class="search_combobox pa">
+                    <div class="search_box_tabs" onmouseover="signTitles(true)" onmouseout="signTitles(false)">
+                        <input type="hidden" name="type" value="<?=Yii::$app->params['search']['type'];?>" id="type">
+                        <span class="search_box_tips" id="query_filde"><?=Yii::$app->params['search']['title'];?></span>
+                        <ul class="J-search-box_tabs" style="display: none;" id="query_list">
+                            <li><a href="javascript:void(0);" value="0">全部</a></li>
+                            <li><a href="javascript:void(0);" value="1">翻新现场</a></li>
+                            <li><a href="javascript:void(0);" value="2">翻新问答</a></li>
+                            <li><a href="javascript:void(0);" value="3">佳园动态</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" id="keyword" name="keyword" class="J-search-box_input pa inputFocus grays" value="<?=Yii::$app->params['search']['keyword'];?>" placeholder="请输入搜索关键字" ov="请输入搜索关键字">
+                    <a href="javascript:void(0);" class="btn-search pa" onclick="check_search()"></a>
                 </div>
-                <input type="text" name="" class="J-search-box_input pa inputFocus grays" value="请输入搜索关键字" ov="请输入搜索关键字">
-                <a href="#" class="btn-search pa"></a>
-            </div>
-            <a href="#" class="ta-extra pa"></a>
+            </form>
+            <a href="<?=Url::to(['qa/ask#ask']);?>" class="ta-extra pa"></a>
         </div>
     </div>
     <div class="nav">

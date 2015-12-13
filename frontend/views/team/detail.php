@@ -8,6 +8,7 @@
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 ?>
+<script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.raty.min.js"></script>
 <div class="p_w">
     <div class="place">
         <a href="#">首页</a>
@@ -17,7 +18,7 @@ use yii\widgets\LinkPager;
     <div class="con_left fl">
         <div class="leader_info border-all mb20 pr">
             <dl>
-                <dt><img src="<?=$model->img;?>" width="255" height="380"></dt>
+                <dt><img src="<?=Url::to([$model->img]);?>" width="255" height="380"></dt>
                 <dd>
                     <div class="leader_de">
                         <p>姓名：<?=$model->username;?></p>
@@ -42,10 +43,10 @@ use yii\widgets\LinkPager;
             <div class="review_box border-all mb20">
                 <div class="review_tit">客户评论：</div>
 
-                <?php foreach($comment as $c){?>
+                <?php foreach($comment as $k=>$c){ $num=$k+1;?>
                     <div class="review_row">
                         <dl class="user_info mb10">
-                            <dt><img src="images/150826_img01.jpg" width="55" height="54"></dt>
+                            <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img0<?=$num;?>.jpg" width="55" height="54"></dt>
                             <dd>
                                 <p class="f14">用户<?=$c->id;?></p>
                                 <p class="f_9f9f9f"><?=date('Y-m-d',$c->time);?></p>
@@ -65,7 +66,7 @@ use yii\widgets\LinkPager;
                 <div class="related_tit">相关工地</div>
                 <ul>
                     <?php foreach($img as $i){ ?>
-                        <li><a href="<?=$i->url;?>"><img src="<?=$i->img;?>" width="238" /></a><a href="<?=$i->url;?>"><?=$i->desc;?></a></li>
+                        <li><a href="<?=$i->url;?>"><img src="<?=Url::to([$i->img]);?>" width="238" /></a><a href="<?=$i->url;?>"><?=$i->desc;?></a></li>
                     <?php }?>
                 </ul>
                 <div class="clearfix"></div>
@@ -111,21 +112,21 @@ use yii\widgets\LinkPager;
         <div class="ques_box border-all mb20">
             <div class="recom_tit">热门问答</div>
             <dl>
-                <dt><img src="images/150826_img01.jpg" width="55"></dt>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img01.jpg" width="55"></dt>
                 <dd>
                     <p><span class="f_e7340c">Q:</span>现有的浴缸想换成淋浴房，这个工程需要多少时间?</p>
                     <p><span class="f_e7340c">A:</span>你好，需要九到十天。</p>
                 </dd>
             </dl>
             <dl>
-                <dt><img src="images/150826_img02.jpg" width="55"></dt>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img02.jpg" width="55"></dt>
                 <dd>
                     <p><span class="f_e7340c">Q:</span>请问能使用公积金支付部分装修费用么？大概比例多少？</p>
                     <p><span class="f_e7340c">A:</span>你好，装修费用不可以用公积金支付，这个政策已经于2012年就结束了。</p>
                 </dd>
             </dl>
             <dl>
-                <dt><img src="images/150826_img03.jpg" width="55"></dt>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img03.jpg" width="55"></dt>
                 <dd>
                     <p><span class="f_e7340c">Q:</span>老房子住了差不多十年，想局部翻新，不知道怎么弄比较好，费用如何？</p>
                     <p><span class="f_e7340c">A:</span>你好，建议让专业人士上门勘测，水电是否要重排，防水也很重要.费用是由设计师或专业人员评估后报价。</p>
@@ -198,7 +199,7 @@ use yii\widgets\LinkPager;
 
         var _csrf='<?= Yii::$app->request->getCsrfToken()?>';
         $.ajax({
-            url: '<?=Url::to(['site/ajrelease']);?>',
+            url: '<?=Url::to(['team/ajrelease']);?>',
             data: {'id':id,'stars1':stars1,'stars2':stars2,'stars3':stars3,'stars4':stars4,'comment':comment,'_csrf':_csrf},
             dataType: "json",
             type: "POST",
@@ -230,8 +231,8 @@ use yii\widgets\LinkPager;
             number: 5,//多少个星星设置
             path      : '',
             size      : 24,
-            starOff   : 'images/star-off-big.png',
-            starOn    : 'images/star-on-big.png',
+            starOff   : '<?=Yii::$app->request->baseUrl;?>/images/star-off-big.png',
+            starOn    : '<?=Yii::$app->request->baseUrl;?>/images/star-on-big.png',
             cancel    : false,
             targetKeep: true,
             targetText: '请选择评分',

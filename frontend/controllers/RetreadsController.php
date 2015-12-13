@@ -10,13 +10,18 @@ use common\models\Package;
 class RetreadsController extends FrontendController{
 
     public function actionIndex(){
+        $package = Package::getRec(5);
+        return $this->render('index',['package'=>$package]);
+    }
+
+    public function actionList(){
         $dataProvider = new ActiveDataProvider([
             'query' => Package::find()->where(['status'=>1])->orderBy('sort'),
             'pagination' => [
                 'pageSize' => 8,
             ],
         ]);
-        return $this->render('index',['dataProvider' => $dataProvider]);
+        return $this->render('list',['dataProvider' => $dataProvider]);
     }
 
     public function actionDetail($id){

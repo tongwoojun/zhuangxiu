@@ -33,6 +33,8 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'time') ?>
 
+    <?php // echo $form->field($model, 'is_rec') ?>
+
     <?php // echo $form->field($model, 'status') ?>
 
     <div class="form-group">

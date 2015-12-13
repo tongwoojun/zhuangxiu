@@ -230,6 +230,18 @@
 .in_ques{ width:311px;}
 .in_ques .ques_box {padding: 14px 0 10px 12px;}
 .in_ques .ques_box dl dd {width: 221px;}
+/*问答首页*/
+.in_ques_pic{float:left; width:169px; margin-right:14px;}
+.in_ques_pic img{display:block;}
+.new_main .in_news_list dd.in_ques_box{
+	width:775px !important;
+	padding:15px 0 0 18px;
+}
+.in_ques_info{ width:172px; float:left;}
+.in_ques_box li{margin-bottom:17px !important;}
+.in_ques_info h3 a{color:#333333; font-size:14px; line-height:18px;}
+.in_ques_info h3 a:hover{color:#e7340c;}
+.in_ques_info p{line-height:18px;}
 /*********************************************/
 .leader_list{padding:20px 0 0 16px;}
 .leader_list li{
@@ -246,7 +258,7 @@
 }
 .leader_list li p{color:#454545; line-height:36px;}
 .leader_btn{ line-height:36px; width:105px; background:#e7350d; color:#fff; display:inline-block;}
-
+.leader_btn:hover{color:#fff;}
 .reserve_box{
 	padding:0 42px 27px;
 	background:#fff;
@@ -1008,6 +1020,10 @@ a.ask_side_btn:hover{color:#fff;}
 	line-height:70px;
 	color:#fff;
 }
-
+.syn_info{
+	text-align:left;
+	line-height:16px;
+	height:48px;
+}
 
 

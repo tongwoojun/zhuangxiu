@@ -19,7 +19,7 @@ class Key extends Models
      */
     public static function tableName()
     {
-        return 'key';
+        return 'zx_key';
     }
 
     /**

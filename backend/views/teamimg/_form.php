@@ -16,7 +16,19 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'tid')->textInput()->hint('提示：创建的时候默认会自动加上') ?>
     </div>
 
-    <?= $form->field($model, 'img')->fileInput()->hint('提示：图片格式jpeg,gif,jpg,png') ?>
+    <div class="row">
+        <div class="col-lg-6">
+            <?php
+            if(!$model->isNewRecord){
+                if($model->img) {
+                    echo Html::img(Yii::$app->params['imgurl'] . $model->img, ['height' => 120,'id'=>'img']);
+                    echo "<br>";
+                }
+            }
+            echo $form->field($model, 'img')->fileInput()->hint('提示：图片格式jpeg,gif,jpg,png');
+            ?>
+        </div>
+    </div>
 
     <?= $form->field($model, 'desc')->textInput(['maxlength' => true]) ?>
 

@@ -30,13 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'area',
-            'type',
-            'space',
-            'acreage',
-            'progress',
+            ['label'=>'区域','value'=>$model->areas->name],
+            ['label'=>'类型','value'=>$model->types->name],
+            ['label'=>'空间','value'=>$model->spaces->name],
+            ['label'=>'面积','value'=>$model->acreages->name],
+            ['label'=>'进度','value'=>$model->progresss->name],
             'title',
-            'img',
+            ['label'=>'缩略图','format'=>'raw','value'=>Html::img(Yii::$app->params['imgurl'].$model->img,['alt' => '缩略图','width' => 80])],
             'atitle',
             'content:ntext',
             'uname',
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'uwork',
             'ustatus',
             'time',
-            'status',
+            ['label'=>'状态','value'=>$model->status_list[$model->status]],
         ],
     ]) ?>
 

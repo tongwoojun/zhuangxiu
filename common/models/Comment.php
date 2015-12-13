@@ -24,7 +24,7 @@ class Comment extends Models
      */
     public static function tableName()
     {
-        return 'comment';
+        return 'zx_comment';
     }
 
     /**

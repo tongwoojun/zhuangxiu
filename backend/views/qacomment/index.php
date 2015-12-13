@@ -7,31 +7,33 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\QacommentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Qacomments';
+$this->title = '翻新问答聊天记录';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="qacomment-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Qacomment', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'qid',
+            //'id',
+            //'qid',
             'ip',
-            'type',
+            [
+                'attribute' => 'type',
+                'filter' =>$searchModel->type_list,
+                'value'=> function($data){return $data->type_list[$data->type];},
+            ],
             'comment',
-            // 'time',
-            // 'status',
+            'time',
+            [
+                'attribute' => 'status',
+                'filter' =>$searchModel->status_list,
+                'value'=> function($data){return $data->status_list[$data->status];},
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

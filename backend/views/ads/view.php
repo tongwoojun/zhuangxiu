@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Ads */
@@ -28,11 +29,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'type',
+            ['label'=>'类型','value'=>$model->key->name],
             'title',
             'desc',
-            'status',
+            ['label'=>'状态','value'=>$model->status_list[$model->status]],
         ],
     ]) ?>
+
+
+    <div class="bs-example" data-example-id="simple-thumbnails">
+        <div class="row">
+            <?= ListView::widget([
+                'dataProvider' => $dataProvider,
+                'layout'=> '{items}',
+                'itemView' => '_item',//子视图
+                'emptyText'=>'<div class="col-xs-6 col-md-4">查询结果数据为空</div>',
+            ]);
+            ?>
+        </div>
+    </div>
+    <?= Html::a('添加广告', ['adslist/create', 'aid' => $model->id], ['class' => 'btn btn-success']) ?>
 
 </div>

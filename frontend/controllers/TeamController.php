@@ -6,6 +6,7 @@ use common\models\Team;
 use common\models\Comment;
 use common\models\TeamImg;
 
+use Yii;
 use yii\data\Pagination;
 use yii\helpers\HtmlPurifier;
 use yii\web\NotFoundHttpException;
@@ -32,7 +33,7 @@ class TeamController extends FrontendController{
     public function actionDetail($id,$type){
         $model = Team::findOne(['id'=>$id,'type'=>$type]);
         if(!$model){
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('请求的页面不存在');
         }
         $query = Comment::find()->andWhere(['tid'=>$id,'status'=>'1']);
         $pagination = new Pagination(['defaultPageSize' => 12, 'totalCount' => $query->count()]);

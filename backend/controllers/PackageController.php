@@ -90,10 +90,10 @@ class PackageController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->img = $model->oldAttributes['img'];
             $img = UploadedFile::getInstance($model, 'img');
-            if($img){
-                $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
-            }
             if ($model->save()) {
+                if($img){
+                    $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+                }
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }

@@ -19,10 +19,10 @@ class FrontendController extends Controller
     public $cache_time = 180;
     public $menus = [];
 
-    public function init()
-    {
+    public function init(){
         parent::init();
         $this->cache = Yii::$app->cache;
+        $this->setParams();
         $this->getAD();
     }
 
@@ -31,6 +31,13 @@ class FrontendController extends Controller
         $pathInfo = Yii::$app->controller->id.'/index';
         $this->getMenus($pathInfo);
         return true;
+    }
+
+    #设置公共变量
+    public function setParams(){
+        if(!isset(Yii::$app->params['search'])){
+            Yii::$app->params['search'] = ['type'=>0,'title'=>'全部','keyword'=>''];
+        }
     }
 
     #获取菜单
@@ -65,11 +72,10 @@ class FrontendController extends Controller
     #获取广告信息
     public function getAD(){
         //TODO ads
-        $data = $this->cache->get("ads");
-        if(!$data){
+
             $data = Adslist::getData();
             $this->cache->set("ads",$data,$this->cache_time);
-        }
+
         Yii::$app->view->params['ads'] = $data;
     }
 

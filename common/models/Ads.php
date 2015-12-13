@@ -19,7 +19,7 @@ class Ads extends Models
      */
     public static function tableName()
     {
-        return 'ads';
+        return 'zx_ads';
     }
 
     /**
@@ -61,5 +61,9 @@ class Ads extends Models
             }
         }
         return $data;
+    }
+
+    public function getKey(){
+        return $this->hasOne(Key::className(), ['id' => 'type']);
     }
 }

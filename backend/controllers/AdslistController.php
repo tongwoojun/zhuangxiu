@@ -65,12 +65,14 @@ class AdslistController extends Controller
         $model->aid = $aid;
         if ($model->load(Yii::$app->request->post())) {
             $img = UploadedFile::getInstance($model, 'img');
+            if($img) {
+                $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
+            }
             if ($model->save()) {
                 if($img){
-                    $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
                     $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
                 }
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['ads/view', 'id' => $model->aid]);
             }
         }
 
@@ -91,16 +93,21 @@ class AdslistController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
+
             $img = UploadedFile::getInstance($model, 'img');
-            $model->img = $model->oldAttributes['img'];
-            if(!$model->img){
-                $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
-            }
             if($img){
-                $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+                if($model->oldAttributes['img']){
+                    $model->img = $model->oldAttributes['img'];
+                }else{
+                    $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
+                }
             }
+
             if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                if($img){
+                    $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+                }
+                return $this->redirect(['ads/view', 'id' => $model->aid]);
             }
         }
 
@@ -117,9 +124,10 @@ class AdslistController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $model = $this->findModel($id)->delete();
+        $aid = $model->aid;
+        $model->delete();
+        return $this->redirect(['ads/view', 'id' => $aid]);
     }
 
     /**

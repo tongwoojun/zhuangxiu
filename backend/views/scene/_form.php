@@ -52,7 +52,7 @@ $list = Key::getList();
         <div class="col-lg-6">
         <?php
         if(!$model->isNewRecord){
-            echo Html::img("./../../../../frontend/web".$model->img, ['width' => 120,'height' => 120]);
+            echo Html::img(Yii::$app->params['imgurl'].$model->img, ['width' => 120,'height' => 120]);
             echo "<br>";
             echo $form->field($model, 'img')->fileInput();
         }else {

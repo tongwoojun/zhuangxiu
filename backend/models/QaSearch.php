@@ -13,15 +13,14 @@ use common\models\User;
  */
 class QaSearch extends Qa
 {
-    public $username;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'views', 'uid', 'status', 'rec'], 'integer'],
-            [['question', 'answer', 'time', 'username'], 'safe'],
+            [['id', 'views', 'status'], 'integer'],
+            [['question', 'answer', 'time', 'name'], 'safe'],
         ];
     }
 
@@ -53,15 +52,6 @@ class QaSearch extends Qa
 
         $this->load($params);
 
-        if($this->username){
-            $user = User::find()->andWhere(['username'=>$this->username])->one();
-            if($user){
-                $this->uid = $user->id;
-            }else{
-                $this->uid = 0;
-            }
-        }
-
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
@@ -72,7 +62,7 @@ class QaSearch extends Qa
         $query->andFilterWhere([
             'id' => $this->id,
             'views' => $this->views,
-            'uid' => $this->uid,
+            'name' => $this->name,
             'time' => $this->time,
             'status' => $this->status,
             'rec' => $this->rec,

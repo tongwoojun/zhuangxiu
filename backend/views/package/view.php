@@ -26,16 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            //'id',
             'title',
-            'img',
+            ['label'=>'图片','format'=>'raw','value'=>Html::img(Yii::$app->params['imgurl'].$model->img,['alt' => '缩略图','width' => 80])],
             'stitle',
             'sort',
             'atitle',
             'content:ntext',
             'views',
             'time',
-            'status',
+            ['label'=>'是否推荐','value'=>$model->rec_list[$model->is_rec]],
+            ['label'=>'状态','value'=>$model->status_list[$model->status]],
         ],
     ]) ?>
 

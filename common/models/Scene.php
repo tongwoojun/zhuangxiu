@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "scene".
@@ -33,7 +34,7 @@ class Scene extends Models
      */
     public static function tableName()
     {
-        return 'scene';
+        return 'zx_scene';
     }
 
     /**
@@ -42,8 +43,8 @@ class Scene extends Models
     public function rules()
     {
         return [
-            [['area', 'type', 'space', 'acreage', 'progress', 'status'], 'integer'],
-            [['area', 'type', 'space', 'acreage', 'progress','title', 'atitle', 'content', 'uname', 'uinfo', 'udesigner', 'uwork', 'status','utime'  ], 'required'],
+            [['area', 'type', 'space', 'acreage', 'progress', 'views', 'status'], 'integer'],
+            [['area', 'type', 'acreage', 'progress','title', 'atitle', 'content', 'uname', 'uinfo', 'udesigner', 'uwork', 'status','utime'  ], 'required'],
             [['content'], 'string'],
             [['utime', 'ustatus', 'time'], 'safe'],
             [['title', 'atitle', 'uname', 'udesigner', 'uwork'], 'string', 'max' => 50],
@@ -51,6 +52,9 @@ class Scene extends Models
             [['img'], 'file', 'extensions' => 'gif, jpg, png',],
             ['time', 'default', 'value' =>date('Y-m-d H:i:s')],
             [['uinfo'], 'string', 'max' => 100],
+
+            ['space', 'required', 'when' => function ($model) {return $model->type == '19';},
+                'whenClient' => "function (attribute, value) {return $('#scene-type').value == '19';}"],
         ];
     }
 
@@ -77,7 +81,40 @@ class Scene extends Models
             'uwork' => '施工队长',
             'ustatus' => '竣工日期',
             'time' => '创建日期',
+            'views'=>'浏览数',
             'status' => '状态',
         ];
+    }
+
+    public function getAreas(){
+        return $this->hasOne(Key::className(), ['id' => 'area']);
+    }
+
+    public function getTypes(){
+        return $this->hasOne(Key::className(), ['id' => 'type']);
+    }
+
+    public function getSpaces(){
+        return $this->hasOne(Key::className(), ['id' => 'space']);
+    }
+
+    public function getAcreages(){
+        return $this->hasOne(Key::className(), ['id' => 'acreage']);
+    }
+
+    public function getProgresss(){
+        return $this->hasOne(Key::className(), ['id' => 'progress']);
+    }
+
+    public static function searchData($keyword){
+        $query = self::find()->orderBy('id desc');
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+        $query->orFilterWhere(['like', 'title', $keyword])->orFilterWhere(['like', 'atitle', $keyword])->andWhere(['status'=>1]);
+        return $dataProvider;
     }
 }

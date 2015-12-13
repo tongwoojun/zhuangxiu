@@ -14,7 +14,8 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
         <div class="col-lg-2">
-            <?= $form->field($model, 'uid')->textInput(['readonly'=>true]) ?>
+            <?= $form->field($model, 'name')->textInput() ?>
+            <?php //echo $form->field($model, 'uid')->textInput(['readonly'=>true]) ?>
         </div>
         <div class="col-lg-5">
             <?= $form->field($model, 'question')->textInput(['maxlength' => true]) ?>
@@ -31,8 +32,12 @@ use yii\widgets\ActiveForm;
         <div class="col-lg-2">
             <?= $form->field($model, 'status')->dropDownList($model->status_list,['prompt' => '请选择']); ?>
         </div>
+    </div>
+
+    <div class="row">
         <div class="col-lg-2">
-            <?= $form->field($model, 'rec')->dropDownList($model->rec_list,['prompt' => '请选择']); ?>
+            <?php //echo $form->field($model, 'rec')->dropDownList($model->rec_list,['prompt' => '请选择']); ?>
+            <?= $form->field($model, 'rec')->checkboxList($model->rec_list) ?>
         </div>
     </div>
 

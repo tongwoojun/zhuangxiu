@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'question',
             'answer',
             'views',
-            'uid',
+            'name',
             'time',
             'status',
             'rec',

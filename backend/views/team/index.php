@@ -17,10 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
+            ['attribute' => 'type',
+                'filter' =>$searchModel->type_list,
+                'value'=>function ($model) {
+                    return $model->type_list[$model->type];
+                },
+            ],
             'username',
             ['attribute' => 'img',
                 'format'=>'raw',
@@ -41,6 +49,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->status_list[$model->status];
                 },
                 'filter' => [0=>'无效',1=>'有效',]
+            ],
+            [
+                'attribute' => 'rec',
+                'filter' =>$searchModel->rec_list,
+                'value'=> function($data){
+                    if(empty($data->rec)){
+                        return;
+                    }
+                    $rec = explode(',',$data->rec);
+                    foreach($rec as $value){
+                        $result .= $data->rec_list[$value].',';
+                    }
+                    return $result;
+                },
             ],
 
             [   'class' => 'yii\grid\ActionColumn',

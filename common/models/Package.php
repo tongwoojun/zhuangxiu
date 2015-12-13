@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "package".
+ * This is the model class for table "zx_package".
  *
  * @property integer $id
  * @property string $title
@@ -25,7 +25,7 @@ class Package extends Models
      */
     public static function tableName()
     {
-        return 'package';
+        return 'zx_package';
     }
 
     /**
@@ -34,13 +34,29 @@ class Package extends Models
     public function rules()
     {
         return [
-            [['title', 'img', 'stitle', 'atitle', 'content'], 'required'],
-            [['sort', 'views', 'status'], 'integer'],
+            [['title', 'stitle', 'atitle', 'content'], 'required'],
+            [['sort', 'views', 'is_rec', 'status'], 'integer'],
             [['content'], 'string'],
             [['time'], 'safe'],
             [['title'], 'string', 'max' => 10],
             [['img'], 'string', 'max' => 225],
             [['stitle', 'atitle'], 'string', 'max' => 100],
+            [['status'], 'default', 'value' => 1],
+            [['views'], 'default', 'value' => 0],
+            [['sort'], 'default', 'value' => 1],
+            [['is_rec'], 'default', 'value' => 0],
+
+            [['img'], 'image', 'extensions' => 'jpg, png, gif', 'maxSize' => 1024 * 1024 * 1,'minWidth' => 362, 'maxWidth' => 362,     'minHeight' => 227, 'maxHeight' => 227,],
+
+            ['img', 'required', 'when' => function ($model) {return $model->isNewRecord;},
+                'whenClient' => "function (attribute, value) {
+                                    obj = document.getElementById('img');
+                                    if(obj){
+                                        return false ;
+                                    }else{
+                                        return true;
+                                    }
+                                 }"],
         ];
     }
 
@@ -59,7 +75,13 @@ class Package extends Models
             'content' => '内容',
             'views' => '浏览数',
             'time' => '创建时间',
+            'is_rec' => '是否推荐',
             'status' => '状态',
         ];
+    }
+
+    #推荐数据
+    public static function getRec($limit){
+        return self::find()->where(['status'=>1,'is_rec'=>1])->orderBy('sort,id')->limit($limit)->all();
     }
 }

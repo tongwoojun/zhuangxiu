@@ -26,7 +26,7 @@ class Adslist extends Models
      */
     public static function tableName()
     {
-        return 'ads_list';
+        return 'zx_ads_list';
     }
 
     /**
@@ -51,7 +51,7 @@ class Adslist extends Models
     {
         return [
             'id' => 'ID',
-            'aid' => 'Aid',
+            'aid' => '广告',
             'name' => '名称',
             'desc' => '描述',
             'url' => '链接',
@@ -66,13 +66,17 @@ class Adslist extends Models
     public static function getData(){
         $data = [];
         $time = date('Y-m-d');
-        $sql = "select * from ads_list where status =1 and (stime is null or stime < '".$time."') and (etime is null or etime > '".$time."')";
-        $model = self::findBySql($sql)->all();
+        $sql = "select * from zx_ads_list where status =1 and (stime is null or stime < '".$time."') and (etime is null or etime > '".$time."')";
+        $model = self::findBySql($sql)->orderBy('sort')->all();
         if($model){
             foreach($model as $value){
                 $data[$value->aid][] = $value->attributes;
             }
         }
         return $data;
+    }
+
+    public function getAd(){
+        return $this->hasOne(Ads::className(), ['id' => 'aid']);
     }
 }

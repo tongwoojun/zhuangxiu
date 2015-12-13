@@ -62,13 +62,21 @@ class QaController extends Controller
     {
         $model = new Qa();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($model->rec){
+                $model->rec = implode(',',$model->rec);
+            }
+
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+
     }
 
     /**
@@ -81,13 +89,23 @@ class QaController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($model->rec){
+                $model->rec = implode(',',$model->rec);
+            }
+
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
         }
+        if($model->rec){
+            $model->rec = explode(',',$model->rec);
+        }
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**

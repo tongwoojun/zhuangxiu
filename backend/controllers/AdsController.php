@@ -4,10 +4,12 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Ads;
+use common\models\Adslist;
 use backend\models\AdsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 /**
  * AdsController implements the CRUD actions for Ads model.
@@ -48,8 +50,15 @@ class AdsController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => Adslist::find()->andWhere(['aid'=>$model->id,'status'=>1])->orderBy('sort'),
+        ]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'dataProvider' => $dataProvider
         ]);
     }
 

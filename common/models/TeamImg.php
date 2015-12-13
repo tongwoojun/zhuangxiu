@@ -23,7 +23,7 @@ class TeamImg extends Models
      */
     public static function tableName()
     {
-        return 'team_img';
+        return 'zx_team_img';
     }
 
     /**

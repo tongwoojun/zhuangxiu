@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('创建', ['create','aid'=>$searchModel->aid], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('添加', ['create','aid'=>$searchModel->aid], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,7 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            //'aid',
+            [
+                'attribute' => "aid",
+                //'filter'=>common\models\Ads::getData(),
+                'value'=>function($model){
+                    return $model->ad->title;
+                },
+            ],
             'name',
             //'desc:ntext',
             'url:url',
@@ -33,7 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'stime',
             'etime',
             'sort',
-            'status',
+            [
+                'attribute' => "status",
+                'filter'=>$searchModel->status_list,
+                'value'=>function($model){
+                    return $model->status_list[$model->status];
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
