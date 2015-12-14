@@ -11,8 +11,8 @@ use yii\widgets\LinkPager;
 ?>
 <div class="p_w">
     <div class="place">
-        <a href="#">首页</a>
-        <a href="#">专业团队</a>
+        <a href="./">首页</a>
+        <a href="<?=Url::to(['team/index']);?>">专业团队</a>
         <span>队长列表</span>
     </div>
     <div class="con_left fl">
@@ -20,7 +20,7 @@ use yii\widgets\LinkPager;
             <ul>
                 <?php if($data){foreach ($data as $model){?>
                     <li>
-                        <img src="<?=$model->img;?>" width="170" height="260" />
+                        <img src="<?=Url::to([$model->img]);?>" width="170" height="260" />
                         <p><?=$model->username;?></p><a href="<?=Url::to(['site/detail','id'=>$model->id]);?>" class="leader_btn">去了解他</a>
                     </li>
                 <?php }} ?>
@@ -86,21 +86,21 @@ use yii\widgets\LinkPager;
         <div class="ques_box border-all mb20">
             <div class="recom_tit">热门问答</div>
             <dl>
-                <dt><img src="images/150826_img01.jpg" width="55" /></dt>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img01.jpg" width="55" /></dt>
                 <dd>
                     <p><span class="f_e7340c">Q:</span>现有的浴缸想换成淋浴房，这个工程需要多少时间?</p>
                     <p><span class="f_e7340c">A:</span>你好，需要九到十天。</p>
                 </dd>
             </dl>
             <dl>
-                <dt><img src="images/150826_img02.jpg" width="55" /></dt>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img02.jpg" width="55" /></dt>
                 <dd>
                     <p><span class="f_e7340c">Q:</span>请问能使用公积金支付部分装修费用么？大概比例多少？</p>
                     <p><span class="f_e7340c">A:</span>你好，装修费用不可以用公积金支付，这个政策已经于2012年就结束了。</p>
                 </dd>
             </dl>
             <dl>
-                <dt><img src="images/150826_img03.jpg" width="55" /></dt>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img03.jpg" width="55" /></dt>
                 <dd>
                     <p><span class="f_e7340c">Q:</span>老房子住了差不多十年，想局部翻新，不知道怎么弄比较好，费用如何？</p>
                     <p><span class="f_e7340c">A:</span>你好，建议让专业人士上门勘测，水电是否要重排，防水也很重要.费用是由设计师或专业人员评估后报价。</p>

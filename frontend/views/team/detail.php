@@ -11,9 +11,10 @@ use yii\widgets\LinkPager;
 <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.raty.min.js"></script>
 <div class="p_w">
     <div class="place">
-        <a href="#">首页</a>
-        <a href="#">专业团队</a>
-        <span>队长列表</span>
+        <a href="./">首页</a>
+        <a href="<?=Url::to(['team/index']);?>">专业团队</a>
+        <a href="<?=Url::to(['team/list','type'=>$model->type]);?>"><?=$model->type==1?'队长列表':'设计师列表';?></a>
+        <span><?=$model->username;?></span>
     </div>
     <div class="con_left fl">
         <div class="leader_info border-all mb20 pr">
