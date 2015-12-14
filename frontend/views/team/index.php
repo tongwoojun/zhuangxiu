@@ -1,6 +1,6 @@
 <?php
-
 use yii\helpers\Url;
+use yii\helpers\StringHelper;
 ?>
 
 <div class="p_w">
@@ -58,7 +58,7 @@ use yii\helpers\Url;
                 <img src="<?=Url::to([$value['img']]);?>" width="170">
                 <p><?=$value['username']?></p>
                 <div class="syn_info">
-                    <?=$value['desc'];?>
+                    <?=StringHelper::truncate($value['desc'],75);?>
                 </div>
                 </a>
             </li>
@@ -78,7 +78,7 @@ use yii\helpers\Url;
                     <img src="<?=Url::to([$value['img']]);?>" width="170" height="206">
                     <p><?=$value['username'];?></p>
                     <div class="syn_info">
-                        <?=$value['desc'];?>
+                        <?=StringHelper::truncate($value['desc'],75);?>
                     </div>
                     </a>
                 </li>
