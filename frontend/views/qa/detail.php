@@ -33,7 +33,7 @@ use yii\widgets\LinkPager;
                 </li>
                 <?php if($comment){foreach($comment as $value){?>
                 <li>
-                    <div class="f_e7340c f14 mb10" style="line-height: 30px;"><?=$value->user->username;?>(<?=$value->time;?>)：</div>
+                    <div class="f_e7340c f14 mb10" style="line-height: 30px;">游客(<?=$value->ip;?>)(<?=$value->time;?>)：</div>
                     <div class="ask_de">
                         <?=$value->comment;?>
                     </div>

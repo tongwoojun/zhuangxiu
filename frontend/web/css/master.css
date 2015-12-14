@@ -613,7 +613,7 @@ a.ask_side_btn:hover{color:#fff;}
 	color:#d08903;
 }
 .fx_packages_sub{ padding:30px 0;}
-.fx_packages_sub img{ display:block;}
+.fx_packages_sub img{ display:block;max-width: 702px;}
 .con_right_bill img{ display:block;}
 /*佳园动态首页*/
 .new_main .in_news_list {

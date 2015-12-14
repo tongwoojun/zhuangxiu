@@ -81,7 +81,7 @@ class QaController extends FrontendController{
     public function actionAjaxsubmit(){
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if (Yii::$app->user->isGuest) {
-            return ['status' => 0, 'info' => '请登录'];
+            //return ['status' => 0, 'info' => '请登录'];
         }
 
         if (!Yii::$app->request->isAjax) {
@@ -91,7 +91,7 @@ class QaController extends FrontendController{
         $data = Yii::$app->request->post();
         $id = intval($data['id']);
         $comment = $data['comment'];
-        $uid = Yii::$app->user->id;
+        $uid = 0;
 
         if ((Qa::findOne($id)) === null) {
             return ['status' => 0, 'info' => '你提交数据有问题'];
