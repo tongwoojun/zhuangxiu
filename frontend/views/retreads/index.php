@@ -21,7 +21,7 @@ use yii\helpers\StringHelper;
     <?php if(isset($package)){ ?>
         <div class="in_fxtc">
             <div class="in_module_header">
-                <span>翻新套餐</span>
+                <a href="<?=Url::to(['retreads/list']);?>"><span>翻新套餐</span></a>
             </div>
             <ul>
                 <?php foreach($package as $key=>$value){$num=$key+1;?>
