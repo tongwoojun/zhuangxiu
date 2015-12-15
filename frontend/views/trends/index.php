@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 use yii\helpers\Url;
+use yii\helpers\StringHelper;
 ?>
 <div class="p_w">
     <div class="place">
@@ -27,7 +28,7 @@ use yii\helpers\Url;
                         </div>
                         <div class="in_news_info">
                             <h3><a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=$value['title'];?></a></h3>
-                            <p><?=$value['desc'];?></p>
+                            <p><?=StringHelper::truncate($value['desc'],35);?></p>
                         </div>
                     </li>
                     <?php }}?>

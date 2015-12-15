@@ -79,7 +79,7 @@ class TrendsController extends Controller
             $model->short_img = "/uploads/qa/qas_" . time() . '.' . $short_img->extension;
             if ($model->save()) {
                 $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
-                $img->saveAs(Yii::$app->params['uploadDir'].$model->short_img);
+                $short_img->saveAs(Yii::$app->params['uploadDir'].$model->short_img);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
