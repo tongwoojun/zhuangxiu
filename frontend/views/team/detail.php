@@ -21,11 +21,24 @@ use yii\widgets\LinkPager;
             <dl>
                 <dt><img src="<?=Url::to([$model->img]);?>" width="255" height="380"></dt>
                 <dd>
+                <?php if($model->type==1){?>
                     <div class="leader_de">
                         <p>姓名：<?=$model->username;?></p>
                         <p><span>年龄：<?=$model->age;?>岁</span>籍贯：<?=$model->from;?></p>
                         <p>简介：<?=$model->desc;?></p>
                     </div>
+                <?php }else{?>
+                    <div class="leader_de">
+                        <p>姓名：<?=$model->username;?></p>
+                        <div class="Designers_info">
+                            <p>从业经验：<?=$model->age;?>年</p>
+                            <p>擅长风格：<?=$model->scfg;?></p>
+                            <p>就职单位：<?=$model->jzdw;?></p>
+                            <p>毕业学校：<?=$model->byxx;?></p>
+                            <p>职　　称：<?=$model->zc;?></p>
+                        </div>
+                    </div>
+                <?php }?>
                     <div class="brief_info">
                         <ul>
                             <li>服务态度：<span title="零星" class="mid-rank-stars mid-str<?=$model->stars1?$model->stars1.'0':'0';?>"></span><span><?=$model->stars1;?>分</span></li>

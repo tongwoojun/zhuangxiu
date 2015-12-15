@@ -31,21 +31,6 @@ use yii\widgets\LinkPager;
         <div class="scott mt50">
             <?= LinkPager::widget(['pagination' => $page,'prevPageLabel'=>'上一页','nextPageLabel'=>'下一页','activePageCssClass'=>'current']) ?>
         </div>
-
-        <!--<div class="scott mt50">
-            <span class="disabled">&lt;上一页</span>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            ...
-            <a href="#">15</a>
-            <a href="#">16</a>
-            <a href="#">17</a>
-            <span class="current">18</span>
-            <a href="#">19</a>
-            <a href="#">20</a>
-            <a href="#">21</a>
-            <a href="#">下一页&gt;</a>
-        </div>-->
     </div>
     <div class="con_right fr">
         <div class="reserve_box border-all mb20">

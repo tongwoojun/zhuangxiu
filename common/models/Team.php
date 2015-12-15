@@ -37,11 +37,12 @@ class Team extends Models
     public function rules()
     {
         return [
-            [['username', 'type', 'age', 'from', 'desc'], 'required'],
+            [['username', 'type', 'age', 'desc'], 'required'],
             [['age', 'stars1', 'stars2', 'stars3', 'stars4', 'status'], 'integer'],
             [['img'], 'file', 'extensions' => 'jpeg,gif,jpg,png' ,'mimeTypes' => 'image/jpeg,image/gif,image/jpg,image/png'],
             [['username'], 'string', 'max' => 5],
             [['from','rec'], 'string', 'max' => 10],
+            [['scfg', 'jzdw', 'byxx', 'zc'], 'string', 'max' => 100],
             [['img', 'desc'], 'string', 'max' => 255],
             ['img', 'required', 'when' => function ($model) {return $model->isNewRecord;},
                 'whenClient' => "function (attribute, value) {
@@ -65,7 +66,7 @@ class Team extends Models
             'username' => '姓名',
             'type'=>'类型',
             'img' => '图片',
-            'age' => '年纪',
+            'age' => '年纪/从业经验',
             'from' => '籍贯',
             'desc' => '简介',
             'stars1' => '服务态度',
@@ -73,7 +74,11 @@ class Team extends Models
             'stars3' => '施工效率',
             'stars4' => '施工质量',
             'status' => '状态',
-            'rec'=>'推荐'
+            'rec'=>'推荐',
+            'scfg' => '擅长风格',
+            'jzdw' => '就职单位',
+            'byxx' => '毕业学校',
+            'zc' => '职称',
         ];
     }
 
@@ -107,6 +112,7 @@ class Team extends Models
     }
 
     public function getRec($rec){
+        $result = '';
         if(empty($rec)){
             return;
         }
