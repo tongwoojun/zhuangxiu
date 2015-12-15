@@ -11,6 +11,7 @@ use yii\helpers\Url;
     <div class="place">
         <a href="<?=Url::to(['site/index']);?>">首页</a>
         <a href="<?=Url::to(['retreads/index']);?>">翻新套餐</a>
+        <a href="<?=Url::to(['retreads/list']);?>">翻新套餐列表</a>
         <span>详情</span>
     </div>
     <div class="con_left fl">
