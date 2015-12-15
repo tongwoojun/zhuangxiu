@@ -36,15 +36,7 @@ use yii\widgets\ActiveForm;
             ?>
         </div>
 
-        <div class="col-lg-6">
-            <?php
-            if(!$model->isNewRecord){
-                echo Html::img(Yii::$app->params['imgurl'] .$model->short_img, ['width' => 120,'height' => 120]);
-                echo "<br>";
-            }
-            echo $form->field($model, 'short_img')->fileInput();
-            ?>
-        </div>
+
     </div>
 
     <div class="row">

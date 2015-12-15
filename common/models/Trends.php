@@ -39,7 +39,7 @@ class Trends extends Models
     public function rules()
     {
         return [
-            [['type', 'title', 'short_title', 'desc', 'content'], 'required'],
+            [['type', 'title', 'short_title', 'desc', 'content','status'], 'required'],
             [['type', 'views', 'status'], 'integer'],
             [['content'], 'string'],
             [['time'], 'safe'],
