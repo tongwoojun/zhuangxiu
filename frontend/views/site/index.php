@@ -85,7 +85,7 @@ $this->title = '家园装潢网首页';
 <?php if(isset($package)){ ?>
 <div class="in_fxtc">
 	<div class="in_module_header">
-         <span>翻新套餐</span>
+        <a href="<?=Url::to(['retreads/list']);?>"><span>翻新套餐</span></a>
     </div>
 	<ul>
         <?php foreach($package as $key=>$value){$num=$key+1;?>
@@ -106,7 +106,7 @@ $this->title = '家园装潢网首页';
 <div class="in_fxxc">
     <?php if(isset(Yii::$app->view->params['ads'][6])){ ?>
 	<div class="in_module_header">
-         <span>翻新现场</span>
+        <a href="<?=Url::to(['scene/list']);?>"><span>翻新套餐</span></a>
          <em><b>597</b>个工地正在翻新</em>
     </div>
 	<div class="index_xgt">
