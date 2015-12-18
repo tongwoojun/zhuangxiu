@@ -81,7 +81,7 @@ use yii\helpers\StringHelper;
 <div class="clearfix"></div>
 
 <div class="border-all fl" style="width:552px;padding: 10px 18px 2px 18px;">
-    <div class="recom_tit"><a href="<?=Url::to(['qa/list']);?>最新问答</a></div>
+    <div class="recom_tit"><a href="<?=Url::to(['qa/list']);?>" >最新问答</a></div>
     <div class="ques_list">
         <ul>
             <?php if(isset($new) && !empty($new)){foreach($new as $value){?>
@@ -97,7 +97,7 @@ use yii\helpers\StringHelper;
     </div>
 </div>
 <div class="border-all fr" style="width:552px;padding: 10px 18px 2px 18px;">
-    <div class="recom_tit"><a href="<?=Url::to(['qa/list']);?>热门问答</a></div>
+    <div class="recom_tit"><a href="<?=Url::to(['qa/list']);?>" >热门问答</a></div>
     <div class="ques_list">
         <ul>
             <?php if(isset($hot) && !empty($hot)){foreach($hot as $value){?>
