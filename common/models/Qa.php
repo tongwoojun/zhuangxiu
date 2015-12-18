@@ -96,23 +96,26 @@ class Qa extends Models
             }
             #首图下方
             if(in_array(1,$rec)){
-                $data['top'][] = $value;
                 if(count($data['top']) >4){
                     continue;
+                }else{
+                    $data['top'][] = $value;
                 }
             }
             #大家都在问
             if(in_array(2,$rec)){
-                $data['all'][] = $value;
-                if(count($data['all']) >6){
+                if(count($data['all']) > 5){
                     continue;
+                }else{
+                    $data['all'][] = $value;
                 }
             }
             #热门问答
             if(in_array(3,$rec)){
-                $data['hot'][] = $value;
-                if(count($data['top']) >3){
+                if(count($data['hot']) >2){
                     continue;
+                }else{
+                    $data['hot'][] = $value;
                 }
             }
         }

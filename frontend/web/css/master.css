@@ -958,6 +958,7 @@ a.ask_side_btn:hover{color:#fff;}
 .fxxc_box_t{padding-bottom:10px;border-bottom:1px solid #dfdfdf; line-height:32px; padding-left:10px;}
 .fxxc_box_b h2{ line-height:50px; font-size:20px;}
 .fxxc_box_b p{line-height:28px;text-indent:2em; margin-bottom:20px;}
+.fxxc_box_b p img{ max-width:700px;}
 /***********/
 .top_bar{
 	position:absolute;
