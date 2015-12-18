@@ -81,14 +81,14 @@ use yii\helpers\StringHelper;
 <div class="clearfix"></div>
 
 <div class="border-all fl" style="width:552px;padding: 10px 18px 2px 18px;">
-    <div class="recom_tit">最新问答</div>
+    <div class="recom_tit"><a href="<?=Url::to(['qa/list']);?>最新问答</a></div>
     <div class="ques_list">
         <ul>
             <?php if(isset($new) && !empty($new)){foreach($new as $value){?>
                 <li>
                     <div class="secc_lihd">
                         <a href="<?=Url::to(['qa/detail','id'=>$value->id]);?>" class="company_lnk ect">用户<?=$value->name;?></a>提问
-                        <a href="<?=Url::to(['qa/detail','id'=>$value->id]);?>" class="question_lnk ect f_e7340c"><?=StringHelper::truncate($value->question,30);?></a>
+                        <a href="<?=Url::to(['qa/detail','id'=>$value->id]);?>" class="question_lnk ect f_e7340c"><?=StringHelper::truncate($value->question,25);?></a>
                     </div>
                     <div class="secc_lians"><?=StringHelper::truncate($value->answer,39);?></div>
                 </li>
@@ -97,14 +97,14 @@ use yii\helpers\StringHelper;
     </div>
 </div>
 <div class="border-all fr" style="width:552px;padding: 10px 18px 2px 18px;">
-    <div class="recom_tit">热门问答</div>
+    <div class="recom_tit"><a href="<?=Url::to(['qa/list']);?>热门问答</a></div>
     <div class="ques_list">
         <ul>
             <?php if(isset($hot) && !empty($hot)){foreach($hot as $value){?>
             <li>
                 <div class="secc_lihd">
                     <a href="<?=Url::to(['qa/detail','id'=>$value->id]);?>" class="company_lnk ect">用户<?=$value->name;?></a>提问
-                    <a href="<?=Url::to(['qa/detail','id'=>$value->id]);?>" class="question_lnk ect f_e7340c"><?=StringHelper::truncate($value->question,30);?></a>
+                    <a href="<?=Url::to(['qa/detail','id'=>$value->id]);?>" class="question_lnk ect f_e7340c"><?=StringHelper::truncate($value->question,25);?></a>
                 </div>
                 <div class="secc_lians"><?=StringHelper::truncate($value->answer,39);?></div>
             </li>
