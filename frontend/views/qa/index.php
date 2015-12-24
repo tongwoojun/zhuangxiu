@@ -32,8 +32,8 @@ use yii\helpers\StringHelper;
                         <a href="<?=$value['url'];?>"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="169" /></a>
                     </div>
                     <div class="in_ques_info">
-                        <h3><a href="<?=$value['url'];?>"><?=$value['name'];?></a></h3>
-                        <p><?=$value['desc'];?></p>
+                        <h3><a href="<?=$value['url'];?>"><?=StringHelper::truncate($value['name'],12,'',null,true);?></a></h3>
+                        <p><?=StringHelper::truncate($value['desc'],55,'...',null,true);?></p>
                     </div>
                 </li>
                 <?php }?>
