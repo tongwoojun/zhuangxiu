@@ -124,7 +124,7 @@ class AdslistController extends Controller
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id)->delete();
+        $model = $this->findModel($id);
         $aid = $model->aid;
         $model->delete();
         return $this->redirect(['ads/view', 'id' => $aid]);
