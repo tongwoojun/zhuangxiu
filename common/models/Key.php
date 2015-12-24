@@ -14,6 +14,7 @@ use Yii;
  */
 class Key extends Models
 {
+    public $info_list = ['area'=>'地区','type'=>'类型','space'=>'空间','acreage'=>'面积','progress'=>'进度','ads'=>'广告'];
     /**
      * @inheritdoc
      */
