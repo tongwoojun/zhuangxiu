@@ -94,12 +94,10 @@ class AdslistController extends Controller
         $oldimg = $model->oldAttributes['img'];
 
         if ($model->load(Yii::$app->request->post())) {
-
             $img = UploadedFile::getInstance($model, 'img');
+            $model->img = $oldimg;
             if($img){
-                if($model->oldAttributes['img']){
-                    $model->img = $oldimg;
-                }else{
+                if(!$model->oldAttributes['img']){
                     $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
                 }
             }
