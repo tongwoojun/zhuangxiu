@@ -13,7 +13,11 @@ use yii\widgets\LinkPager;
     <div class="place">
         <a href="./">首页</a>
         <a href="<?=Url::to(['team/index']);?>">专业团队</a>
-        <span>队长列表</span>
+        <?php if($_GET['type']==1){?>
+            <span>队长列表</span>
+        <?php }else{?>
+            <span>设计师列表</span>
+        <?php }?>
     </div>
     <div class="con_left fl">
         <div class="leader_list border-all">
