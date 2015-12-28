@@ -20,8 +20,8 @@ use yii\widgets\LinkPager;
             <ul>
                 <?php if($data){foreach ($data as $model){?>
                     <li>
-                        <img src="<?=Url::to([$model->img]);?>" width="170" height="260" />
-                        <p><?=$model->username;?></p><a href="<?=Url::to(['site/detail','id'=>$model->id]);?>" class="leader_btn">去了解他</a>
+                        <img src="<?=Url::to([$model->img]);?>" width="120" height="120" />
+                        <p><?=$model->username;?></p><a href="<?=Url::to(['team/detail','id'=>$model->id]);?>" class="leader_btn">去了解他</a>
                     </li>
                 <?php }} ?>
             </ul>
