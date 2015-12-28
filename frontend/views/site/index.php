@@ -154,7 +154,7 @@ $this->title = '家园装潢网首页';
                     <?php if($trends_data[3]){foreach($trends_data[3] as $key=>$value){ ?>
 					<li>
 						<div class="in_news_pic">
-							<a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><img src="<?=Url::to([$value['img']]);?>" width="144" height="93" /></a>
+							<a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><img src="<?=Url::to([$value['img']]);?>" width="144"  height="93" /></a>
 						</div>
 						<div class="in_news_info">
 							<h3><a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],15);?></a></h3>
