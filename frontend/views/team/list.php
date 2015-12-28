@@ -21,7 +21,7 @@ use yii\widgets\LinkPager;
                 <?php if($data){foreach ($data as $model){?>
                     <li>
                         <img src="<?=Url::to([$model->img]);?>" width="120" height="120" />
-                        <p><?=$model->username;?></p><a href="<?=Url::to(['team/detail','id'=>$model->id,'type'=>2]);?>" class="leader_btn">去了解他</a>
+                        <p><?=$model->username;?></p><a href="<?=Url::to(['team/detail','id'=>$model->id,'type'=>$model->type]);?>" class="leader_btn">去了解他</a>
                     </li>
                 <?php }} ?>
             </ul>
