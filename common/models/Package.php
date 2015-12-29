@@ -84,4 +84,9 @@ class Package extends Models
     public static function getRec($limit){
         return self::find()->where(['status'=>1,'is_rec'=>1])->orderBy('sort,id')->limit($limit)->all();
     }
+
+    #热门数据
+    public static function getHost($limit){
+        return self::find()->where(['status'=>1])->orderBy('views desc')->limit($limit)->all();
+    }
 }

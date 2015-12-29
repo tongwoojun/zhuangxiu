@@ -102,4 +102,8 @@ class Trends extends Models
         $query->orFilterWhere(['like', 'title', $keyword])->orFilterWhere(['like', 'short_title', $keyword])->andWhere(['status'=>1]);
         return $dataProvider;
     }
+
+    public static function getHot($limit=4){
+        return self::find()->andWhere(['status'=>1])->orderBy('views desc')->limit($limit)->all();
+    }
 }

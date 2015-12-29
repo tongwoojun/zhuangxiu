@@ -41,7 +41,7 @@ class SceneSearch extends Scene
      */
     public function search($params)
     {
-        $query = Scene::find()->orderBy('id desc');
+        $query = Scene::find()->where(['status'=>1])->orderBy('id desc');
 
         // add conditions that should always apply here
 

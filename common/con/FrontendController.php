@@ -72,10 +72,11 @@ class FrontendController extends Controller
     #获取广告信息
     public function getAD(){
         //TODO ads
-
+        $data = $this->cache->get("ads");
+        if(!$data) {
             $data = Adslist::getData();
-            $this->cache->set("ads",$data,$this->cache_time);
-
+            $this->cache->set("ads", $data, $this->cache_time);
+        }
         Yii::$app->view->params['ads'] = $data;
     }
 

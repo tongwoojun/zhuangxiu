@@ -26,7 +26,7 @@ use yii\helpers\Url;
         </div>
     </div>
     <div class="con_right fr">
-        <?= $this->render('//layouts/left', []); ?>
+        <?= $this->render('//layouts/left', ['left_list'=>[1,2,3,4,5,6]]); ?>
     </div>
     <div class="clearfix"></div>
 </div>

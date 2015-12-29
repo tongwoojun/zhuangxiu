@@ -38,7 +38,9 @@ class TrendsController extends FrontendController{
     }
 
     protected function findModel($id){
-        if (($model = Trends::findOne($id)) !== null) {
+        if (($model = Trends::findOne(['id'=>$id,'status'=>1])) !== null) {
+            $model->views += 1;
+            $model->save();
             return $model;
         } else {
             throw new NotFoundHttpException('对不起，请求的页面不存在');

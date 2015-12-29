@@ -25,10 +25,17 @@ class RetreadsController extends FrontendController{
     }
 
     public function actionDetail($id){
-        $model = Package::findOne(['id'=>$id,'status'=>1]);
-        if(!$model){
-            throw new NotFoundHttpException('对不起,该翻新套餐不存在.');
-        }
+        $model = $this->findModel($id);
         return $this->render('detail',['model' => $model]);
+    }
+
+    protected function findModel($id){
+        if (($model = Package::findOne(['id'=>$id,'status'=>1])) !== null) {
+            $model->views += 1;
+            $model->save();
+            return $model;
+        } else {
+            throw new NotFoundHttpException('对不起，该翻新套餐不存在');
+        }
     }
 }

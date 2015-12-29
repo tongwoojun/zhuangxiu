@@ -62,7 +62,6 @@ use yii\helpers\StringHelper;
     </div>
 </div>
 
-
 <?php if(isset(Yii::$app->view->params['ads'][11])){ ?>
 <div class="ask_team border-all mb20 fr">
     <div class="recom_tit">专家团队</div>

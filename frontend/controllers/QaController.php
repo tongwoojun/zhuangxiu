@@ -69,7 +69,7 @@ class QaController extends FrontendController{
     }
 
     protected function findModel($id){
-        if (($model = Qa::findOne($id)) !== null) {
+        if (($model = Qa::findOne(['id'=>$id,'status'=>1])) !== null) {
             $model->views += 1;
             $model->save();
             return $model;

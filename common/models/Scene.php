@@ -117,4 +117,9 @@ class Scene extends Models
         $query->orFilterWhere(['like', 'title', $keyword])->orFilterWhere(['like', 'atitle', $keyword])->andWhere(['status'=>1]);
         return $dataProvider;
     }
+
+    #热门数据
+    public static function getHost($limit){
+        return self::find()->where(['status'=>1])->orderBy('views desc')->limit($limit)->all();
+    }
 }

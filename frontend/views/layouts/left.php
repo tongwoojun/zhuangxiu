@@ -6,8 +6,14 @@
  * Time: 16:36
  */
 use \yii\helpers\Url;
-$list = $this->params['list'];
+use \yii\helpers\Html;
+use common\models\Package;
+use common\models\Scene;
+use common\models\Qa;
+use yii\helpers\StringHelper;
 
+$list = $this->params['list'];
+if(in_array(1,$left_list)){
 ?>
 <div class="reserve_box border-all mb20">
     <div class="reserve_tit tc">预约翻新</div>
@@ -29,51 +35,51 @@ $list = $this->params['list'];
         <a href="javascript:void(0);" class="reserve_btn" onclick="Submit('form_1');">立即报名</a>
     </form>
 </div>
+<?php }?>
+
+<?php
+
+if(in_array(2,$left_list)){
+    $models = Package::getHost(4);
+?>
 <div class="hot_vedio border-all mb20">
-    <div class="recom_tit">热门套餐</div>
+    <div class="recom_tit">热门套餐<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a></div>
     <ul class="hot_packages_list">
-        <li>
-            <a href="#">
-                <img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img09.jpg" width="170" height="109" />
-            </a>
-            <a href="#">666元/㎡家装全包套餐</a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img09.jpg" width="170" height="109" />
-            </a>
-            <a href="#">666元/㎡家装全包套餐</a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img09.jpg" width="170" height="109" />
-            </a>
-            <a href="#">666元/㎡家装全包套餐</a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img09.jpg" width="170" height="109" />
-            </a>
-            <a href="#">666元/㎡家装全包套餐</a>
-        </li>
+        <?php if($models){ foreach($models as $model){ ?>
+            <li>
+                <a href="<?=Url::to(['retreads/detail','id'=>$model->id]);?>">
+                    <img src="<?=Url::to([$model->img]);?>" width="170" height="109" />
+                </a>
+                <a href="<?=Url::to(['retreads/detail','id'=>$model->id]);?>"><?=Html::encode($model->title);?></a>
+            </li>
+        <?php }} ?>
     </ul>
     <div class="clearfix"></div>
 </div>
+<?php }?>
+
+<?php if(in_array(3,$left_list)){?>
 <div class="con_right_bill mb20">
     <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img13.jpg" width="397" height="280" /></a>
 </div>
+<?php }?>
+
+<?php if(in_array(4,$left_list)){
+    $models = Scene::getHost(5);
+?>
 <div class="recom_box border-all mb20">
-    <div class="recom_tit">大家都在看的工地<a href="#" class="pa more" target="_blank"></a></div>
+    <div class="recom_tit">大家都在看的工地<a href="<?=Url::to(['scene/index']);?>" class="pa more" target="_blank"></a></div>
     <ul>
-        <li><span class="fr">整体翻新</span><a href="#">闵行区 莘庄银都路3536弄</a></li>
-        <li><span class="fr">局部翻新</span><a href="#">闵行区 闵行区红松路龙柏二村</a></li>
-        <li><span class="fr">整体翻新</span><a href="#">浦东新区 巨峰路997弄</a></li>
-        <li><span class="fr">整体翻新</span><a href="#">静安区 余姚路327号</a></li>
-        <li><span class="fr">整体翻新</span><a href="#">闵行区 闵行区红松路龙柏二村</a></li>
+    <?php if($models){ foreach($models as $model){ ?>
+        <li><span class="fr"><?=$model->types->name;?></span><a href="<?=Url::to(['scene/detail','id'=>$model->id]);?>"><?=$model->title;?></a></li>
+    <?php }}?>
     </ul>
 </div>
+<?php }?>
+
+<?php if(in_array(5,$left_list)){?>
 <div class="hot_vedio border-all mb20">
-    <div class="recom_tit">热门视频<a href="#" class="pa more" target="_blank"></a></div>
+    <div class="recom_tit">佳园动态<a href="#" class="pa more" target="_blank"></a></div>
     <dl class="ask_team_list">
         <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img08_1.jpg" width="144" /></dt>
         <dd>
@@ -96,29 +102,55 @@ $list = $this->params['list'];
         </dd>
     </dl>
 </div>
-<div class="con_right fr">
-    <div class="ques_box border-all">
-        <div class="recom_tit">热门问答</div>
-        <dl>
-            <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img01.jpg" width="55" /></dt>
-            <dd>
-                <p><span class="f_e7340c">Q:</span>现有的浴缸想换成淋浴房，这个工程需要多少时间?</p>
-                <p><span class="f_e7340c">A:</span>你好，需要九到十天。</p>
-            </dd>
-        </dl>
-        <dl>
-            <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img02.jpg" width="55" /></dt>
-            <dd>
-                <p><span class="f_e7340c">Q:</span>请问能使用公积金支付部分装修费用么？大概比例多少？</p>
-                <p><span class="f_e7340c">A:</span>你好，装修费用不可以用公积金支付，这个政策已经于2012年就结束了。</p>
-            </dd>
-        </dl>
-        <dl>
-            <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img03.jpg" width="55" /></dt>
-            <dd>
-                <p><span class="f_e7340c">Q:</span>老房子住了差不多十年，想局部翻新，不知道怎么弄比较好，费用如何？</p>
-                <p><span class="f_e7340c">A:</span>你好，建议让专业人士上门勘测，水电是否要重排，防水也很重要.费用是由设计师或专业人员评估后报价。</p>
-            </dd>
-        </dl>
+<?php }?>
+
+<?php if(in_array(7,$left_list)){?>
+<div class="ask_side border-all mb20">
+    <div class="tc ask_side_one mb20">
+        <p>专业团队</p>
+        <p class="mb10">为您解答每一个问题</p>
+        <p>已有<em class="f_e7340c">25849</em>位业主得到了帮助</p>
+    </div>
+    <div class="tc">
+        <p class="f14 f_e7340c mb10">资深设计、行业专家为您解答装修的各种疑问。</p>
+        <a href="<?=Url::to(['qa/ask#ask']);?>" class="ask_side_btn">我要提问</a>
     </div>
 </div>
+<?php }?>
+
+<?php if(in_array(8,$left_list)){?>
+    <?php if(isset(Yii::$app->view->params['ads'][11])){ ?>
+        <div class="ask_team border-all mb20">
+            <div class="recom_tit">专家团队</div>
+            <?php foreach(Yii::$app->view->params['ads'][11] as $key=>$value){?>
+                <dl class="ask_team_list">
+                    <dt><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="120"></dt>
+                    <dd>
+                        <h3 class="f14"><?=$value['name'];?></h3>
+                        <?=$value['desc'];?>
+                        <a href="<?=Url::to(['qa/ask#ask']);?>" class="ask_side_btn">我要提问</a>
+                    </dd>
+                </dl>
+            <?php }?>
+        </div>
+    <?php }?>
+<?php }?>
+
+<?php if(in_array(6,$left_list)){
+    $models = Qa::getRec(3);
+?>
+    <div class="con_right fr">
+        <div class="ques_box border-all">
+            <div class="recom_tit">热门问答 <a href="<?=Url::to(['qa/index']);?>" class="pa more" target="_blank"></a></div>
+            <?php if($models){ foreach($models as $key=>$model){ $num = $key+1; ?>
+            <dl>
+                <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img0<?=$num;?>.jpg" width="55" /></dt>
+                <dd>
+                    <p><span class="f_e7340c">Q:</span><?=StringHelper::truncate($model->question,15);?></p>
+                    <p><span class="f_e7340c">A:</span><?=StringHelper::truncate($model->answer,35);?></p>
+                </dd>
+            </dl>
+            <?php }}?>
+        </div>
+    </div>
+<?php }?>

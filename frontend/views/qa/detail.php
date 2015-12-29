@@ -59,7 +59,7 @@ use yii\widgets\LinkPager;
 
     </div>
     <div class="con_right fr">
-        <?= $this->render('//layouts/left', []); ?>
+        <?= $this->render('//layouts/left', ['left_list'=>[6]]); ?>
     </div>
     <div class="clearfix"></div>
 </div>
