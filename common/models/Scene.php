@@ -119,7 +119,7 @@ class Scene extends Models
     }
 
     #热门数据
-    public static function getHost($limit){
+    public static function getHot($limit){
         return self::find()->where(['status'=>1])->orderBy('views desc')->limit($limit)->all();
     }
 }

@@ -41,7 +41,7 @@ if(in_array(1,$left_list)){
 <?php
 
 if(in_array(2,$left_list)){
-    $models = Package::getHost(4);
+    $models = Package::getHot(4);
 ?>
 <div class="hot_vedio border-all mb20">
     <div class="recom_tit">热门套餐<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a></div>
@@ -66,7 +66,7 @@ if(in_array(2,$left_list)){
 <?php }?>
 
 <?php if(in_array(4,$left_list)){
-    $models = Scene::getHost(5);
+    $models = Scene::getHot(5);
 ?>
 <div class="recom_box border-all mb20">
     <div class="recom_tit">大家都在看的工地<a href="<?=Url::to(['scene/index']);?>" class="pa more" target="_blank"></a></div>
@@ -79,7 +79,7 @@ if(in_array(2,$left_list)){
 <?php }?>
 
 <?php if(in_array(5,$left_list)){
-    $models = Trends::getHost(3);
+    $models = Trends::getHot(3);
 ?>
 <div class="hot_vedio border-all mb20">
     <div class="recom_tit">佳园动态<a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a></div>
