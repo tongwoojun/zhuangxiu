@@ -10,6 +10,7 @@ use \yii\helpers\Html;
 use common\models\Package;
 use common\models\Scene;
 use common\models\Qa;
+use common\models\Trends;
 use yii\helpers\StringHelper;
 
 $list = $this->params['list'];
@@ -77,30 +78,20 @@ if(in_array(2,$left_list)){
 </div>
 <?php }?>
 
-<?php if(in_array(5,$left_list)){?>
+<?php if(in_array(5,$left_list)){
+    $models = Trends::getHost(3);
+?>
 <div class="hot_vedio border-all mb20">
-    <div class="recom_tit">佳园动态<a href="#" class="pa more" target="_blank"></a></div>
+    <div class="recom_tit">佳园动态<a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a></div>
+    <?php if($models){ foreach($models as $model){ ?>
     <dl class="ask_team_list">
         <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img08_1.jpg" width="144" /></dt>
         <dd>
-            <h3 class="f14">老娘舅主持人郭亮</h3>
-            <p>老娘舅的主持人郭亮接受电视采访，对佳园装潢在行业中的翻新工作高度认可。郭亮在工作中遇到装潢...</p>
+            <h3 class="f14"><?=$model->title;?></h3>
+            <p><?=StringHelper::truncate($model->desc,35);?></p>
         </dd>
     </dl>
-    <dl class="ask_team_list">
-        <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img08_1.jpg" width="144" /></dt>
-        <dd>
-            <h3 class="f14">老娘舅主持人郭亮</h3>
-            <p>老娘舅的主持人郭亮接受电视采访，对佳园装潢在行业中的翻新工作高度认可。郭亮在工作中遇到装潢...</p>
-        </dd>
-    </dl>
-    <dl class="ask_team_list">
-        <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img08_1.jpg" width="144" /></dt>
-        <dd>
-            <h3 class="f14">老娘舅主持人郭亮</h3>
-            <p>老娘舅的主持人郭亮接受电视采访，对佳园装潢在行业中的翻新工作高度认可。郭亮在工作中遇到装潢...</p>
-        </dd>
-    </dl>
+    <?php }}?>
 </div>
 <?php }?>
 
