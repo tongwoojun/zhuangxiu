@@ -85,7 +85,7 @@ if(in_array(2,$left_list)){
     <div class="recom_tit">佳园动态<a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a></div>
     <?php if($models){ foreach($models as $model){ ?>
     <dl class="ask_team_list">
-        <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img08_1.jpg" width="144" /></dt>
+        <dt><img src="<?=Url::to([$model->img]);?>" width="144" /></dt>
         <dd>
             <h3 class="f14"><?=$model->title;?></h3>
             <p><?=StringHelper::truncate($model->desc,35);?></p>
