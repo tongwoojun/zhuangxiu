@@ -15,7 +15,7 @@ use yii\helpers\StringHelper;
         <span>推荐套餐</span>
     </div>
     <?php if(isset(Yii::$app->view->params['ads'][12])){ ?>
-    <div class="in_bill"><a href="<?=Yii::$app->view->params['ads'][4][0]['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][12][0][img];?>" width="1198" height="394"></a></div>
+    <div class="in_bill"><a href="<?=Yii::$app->view->params['ads'][12][0]['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][12][0][img];?>" width="1198" height="394"></a></div>
     <?php }?>
 
     <?php if(isset($package)){ ?>
