@@ -61,4 +61,15 @@ class Key extends Models
         }
         return $data;
     }
+
+    public static function getData($info){
+        $data = [];
+        $model = self::find()->andWhere(['status' => 1,'info'=>$info])->all();
+        if ($model) {
+            foreach ($model as $value) {
+                $data[$value->info][$value->id] = $value->name;
+            }
+        }
+        return $data;
+    }
 }

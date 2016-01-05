@@ -7,33 +7,36 @@
  */
 use \yii\helpers\Url;
 use \yii\helpers\Html;
-use common\models\Package;
-use common\models\Scene;
+
 use common\models\Qa;
+use common\models\Key;
+use common\models\Scene;
 use common\models\Trends;
+use common\models\Package;
 use yii\helpers\StringHelper;
 
-$list = $this->params['list'];
 if(in_array(1,$left_list)){
+    $list = Key::getData('type');
 ?>
 <div class="reserve_box border-all mb20">
     <div class="reserve_tit tc">预约翻新</div>
-    <form id="form_1" action="<?=Url::to(['site/ajaxform']);?>" method="post">
+    <div class="errors tc" id="errors_msg"></div>
+    <form id="form_2" action="<?=Url::to(['site/ajaxform']);?>" method="post">
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
         <input type="hidden" name="Form[type]" value="2">
-        <p class="mb10"><label class="zt_widthlabel">姓名：</label><input name="name" type="text" class="input inputFocus grays" value="填写真实姓名" ov="填写真实姓名" style="width: 244px;" /></p>
-        <p class="mb10"><label class="zt_widthlabel">电话：</label><input name="tel" type="text" class="input inputFocus grays" value="填写手机号码" ov="填写手机号码" style="width: 244px;" /></p>
-        <p class="mb10"><label class="zt_widthlabel">地址：</label><input name="adress" type="text" class="input inputFocus grays" value="填写手机号码" ov="填写手机号码" style="width: 244px;" /></p>
+        <p class="mb10"><label class="zt_widthlabel">姓名：</label><input id="form_2_name" name="Form[name]" type="text" class="input inputFocus grays" value="" ov="填写真实姓名" style="width: 244px;" /></p>
+        <p class="mb10"><label class="zt_widthlabel">电话：</label><input id="form_2_tel" name="Form[tel]" type="text" class="input inputFocus grays" value="" ov="填写手机号码" style="width: 244px;" /></p>
+        <p class="mb10"><label class="zt_widthlabel">地址：</label><input id="form_2_adress" name="Form[adress]" type="text" class="input inputFocus grays" value="" ov="填写手机号码" style="width: 244px;" /></p>
         <p class="mb10"><label class="zt_widthlabel">类型：</label>
-            <select name="">
+            <select id="form_2_title" name="Form[title]">
                 <?php if($list && isset($list['type'])){ foreach($list['type'] as $key=>$value){ ?>
-                <option value="<?=$key;?>"><?=$value;?></option>
+                <option value="<?=$value;?>"><?=$value;?></option>
                 <?php }}?>
             </select>
         </p>
-        <p class="mb10"><input name="" type="text" class="input inputFocus grays" style="width: 294px;" value="您可以在这里留言写下您的其他装修要求" ov="您可以在这里留言写下您的其他装修要求" /></p>
+        <p class="mb10"><input id="form_2_desc" name="Form[desc]" type="text" class="input inputFocus grays" style="width: 294px;" value="" ov="您可以在这里留言写下您的其他装修要求" /></p>
         <p class="f_e7340c tc f14" style="line-height:38px;">立即预约，减免设计费用1000元</p>
-        <a href="javascript:void(0);" class="reserve_btn" onclick="Submit('form_1');">立即报名</a>
+        <a href="javascript:void(0);" class="reserve_btn" onclick="Submit('form_2');">立即报名</a>
     </form>
 </div>
 <?php }?>

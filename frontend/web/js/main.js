@@ -75,8 +75,6 @@ function Submit(id){
     });
 }
 
-
-
 function check_form_1(id){
     var name_obj =$('#'+id+'_name');
     var tel_obj =$('#'+id+'_tel');
@@ -119,6 +117,56 @@ function check_form_1(id){
         return false;
     }
 }
+
+
+function check_form_2(id){
+    var name_obj =$('#'+id+'_name');
+    var tel_obj =$('#'+id+'_tel');
+    var adress_obj =$('#'+id+'_adress');
+    var title_obj =$('#'+id+'_title');
+    var desc_obj =$('#'+id+'_desc');
+
+    $('#'+id+" table input").each(function(){
+        $(this).removeClass("errors");
+    });
+    $('#errors_msg').html("");
+
+    var name = name_obj.val();
+    if(!name){
+        show_error(name_obj,'用户名不能为空')
+        return false;
+    }
+    if(name.match(/<|"/ig)) {
+        show_error(name_obj, '用户名包含敏感字符');
+        return false;
+    }
+    var unlen = name.length;
+    if(unlen < 2 || unlen > 5) {
+        show_error(name_obj, unlen < 2 ? '用户名不得小于 2 个字符' : '用户名不得超过 5 个字符');
+        return false;
+    }
+
+    var tel = tel_obj.val();
+    if(!tel){
+        show_error(tel_obj,'电话不能为空')
+        return false;
+    }
+
+    if(!isPhone(tel)){
+        show_error(tel_obj,'电话格式不对')
+        return false;
+    }
+
+    var adress = adress_obj.val();
+    if(!adress){
+        show_error(adress_obj,'地址不能为空')
+        return false;
+    }
+}
+
+
+
+
 
 function show_error(obj,msg){
     obj.addClass('errors');
