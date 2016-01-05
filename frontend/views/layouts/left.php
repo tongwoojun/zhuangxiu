@@ -47,7 +47,7 @@ if(in_array(2,$left_list)){
     $models = Package::getHot(4);
 ?>
 <div class="hot_vedio border-all mb20">
-    <div class="recom_tit">热门套餐<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a></div>
+    <div class="recom_tit"><a href="<?=Url::to(['retreads/list']);?>" target="_blank">热门套餐</a> <a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a></div>
     <ul class="hot_packages_list">
         <?php if($models){ foreach($models as $model){ ?>
             <li>
@@ -76,7 +76,7 @@ if(in_array(2,$left_list)){
     $models = Scene::getHot(5);
 ?>
 <div class="recom_box border-all mb20">
-    <div class="recom_tit">大家都在看的工地<a href="<?=Url::to(['scene/index']);?>" class="pa more" target="_blank"></a></div>
+    <div class="recom_tit"><a href="<?=Url::to(['scene/index']);?>" target="_blank">大家都在看的工地</a> <a href="<?=Url::to(['scene/index']);?>" class="pa more" target="_blank"></a></div>
     <ul>
     <?php if($models){ foreach($models as $model){ ?>
         <li><span class="fr"><?=$model->types->name;?></span><a href="<?=Url::to(['scene/detail','id'=>$model->id]);?>"><?=$model->title;?></a></li>
@@ -89,7 +89,7 @@ if(in_array(2,$left_list)){
     $models = Trends::getHot(3);
 ?>
 <div class="hot_vedio border-all mb20">
-    <div class="recom_tit">佳园动态<a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a></div>
+    <div class="recom_tit"><a href="<?=Url::to(['trends/index']);?>" target="_blank">佳园动态</a> <a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a></div>
     <?php if($models){ foreach($models as $model){ ?>
     <dl class="ask_team_list">
         <dt><a href="<?=Url::to(['trends/detail','id'=>$model->id]);?>" target="_blank"><img src="<?=Url::to([$model->img]);?>" width="144" /></a></dt>
@@ -119,7 +119,7 @@ if(in_array(2,$left_list)){
 <?php if(in_array(8,$left_list)){?>
     <?php if(isset(Yii::$app->view->params['ads'][11])){ ?>
         <div class="ask_team border-all mb20">
-            <div class="recom_tit">专家团队</div>
+            <div class="recom_tit"><a href="<?=Url::to(['team/index']);?>" target="_blank">专家团队</a></div>
             <?php foreach(Yii::$app->view->params['ads'][11] as $key=>$value){?>
                 <dl class="ask_team_list">
                     <dt><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="120"></dt>
@@ -139,7 +139,7 @@ if(in_array(2,$left_list)){
 ?>
     <div class="con_right fr">
         <div class="ques_box border-all">
-            <div class="recom_tit">热门问答 <a href="<?=Url::to(['qa/index']);?>" class="pa more" target="_blank"></a></div>
+            <div class="recom_tit"><a href="<?=Url::to(['qa/index']);?>" target="_blank">热门问答</a> <a href="<?=Url::to(['qa/index']);?>" class="pa more" target="_blank"></a></div>
             <?php if($models){ foreach($models as $key=>$model){ $num = $key+1; ?>
             <a href="<?=Url::to(['qa/detail','id'=>$model->id]);?>" target="_blank">
             <dl>
