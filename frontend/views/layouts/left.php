@@ -64,7 +64,7 @@ if(in_array(2,$left_list)){
 
 <?php if(in_array(3,$left_list)){?>
 <div class="con_right_bill mb20">
-    <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img13.jpg" width="397" height="280" /></a>
+    <a href="#" target="_blank"><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img13.jpg" width="397" height="280" /></a>
 </div>
 <?php }?>
 
@@ -88,9 +88,9 @@ if(in_array(2,$left_list)){
     <div class="recom_tit">佳园动态<a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a></div>
     <?php if($models){ foreach($models as $model){ ?>
     <dl class="ask_team_list">
-        <dt><img src="<?=Url::to([$model->img]);?>" width="144" /></dt>
+        <dt><a href="<?=Url::to(['trends/detail','id'=>$model->id]);?>" target="_blank"><img src="<?=Url::to([$model->img]);?>" width="144" /></a></dt>
         <dd>
-            <h3 class="f14"><?=$model->title;?></h3>
+            <h3 class="f14"><a href="<?=Url::to(['trends/detail','id'=>$model->id]);?>"><?=$model->title;?></a></h3>
             <p><?=StringHelper::truncate($model->desc,35);?></p>
         </dd>
     </dl>
@@ -137,6 +137,7 @@ if(in_array(2,$left_list)){
         <div class="ques_box border-all">
             <div class="recom_tit">热门问答 <a href="<?=Url::to(['qa/index']);?>" class="pa more" target="_blank"></a></div>
             <?php if($models){ foreach($models as $key=>$model){ $num = $key+1; ?>
+            <a href="<?=Url::to(['qa/detail','id'=>$model->id]);?>" target="_blank">
             <dl>
                 <dt><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img0<?=$num;?>.jpg" width="55" /></dt>
                 <dd>
@@ -144,6 +145,7 @@ if(in_array(2,$left_list)){
                     <p><span class="f_e7340c">A:</span><?=StringHelper::truncate($model->answer,35);?></p>
                 </dd>
             </dl>
+            </a>
             <?php }}?>
         </div>
     </div>
