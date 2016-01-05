@@ -7,17 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\FormSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Forms';
+$this->title = '报名活动';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="form-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Form', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -26,18 +22,30 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'type',
+            [
+                'attribute' => 'type',
+                'filter' => $searchModel->type_list,
+                'value'=> function($data){
+                    return $data->type_list[$data->type];
+                },
+            ],
             'name',
             'tel',
-            'email:email',
+            //'email:email',
             // 'adress',
             // 'desc',
-            // 'ip',
-            // 'time',
+            'ip',
+            'time',
             // 'other',
-            // 'status',
+            [
+                'attribute' => 'status',
+                'filter' =>[0=>'未确认',1=>'确认'],
+                'value'=> function($data){return $data->status ==1?'确认':'未确认';},
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [   'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}',
+            ],
         ],
     ]); ?>
 

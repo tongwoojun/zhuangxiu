@@ -21,7 +21,7 @@ use Yii;
  */
 class Form extends \yii\db\ActiveRecord
 {
-    public $type_lit = [1=>'展会报名',2=>'预约翻新',3=>'翻新问答'];
+    public $type_list = [1=>'展会报名',2=>'预约翻新',3=>'翻新问答'];
     /**
      * @inheritdoc
      */

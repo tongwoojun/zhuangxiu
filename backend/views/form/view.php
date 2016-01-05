@@ -6,30 +6,17 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Form */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Forms', 'url' => ['index']];
+$this->title = @$model->type_list[$model->type];
+$this->params['breadcrumbs'][] = ['label' => '报名活动', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="form-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            'type',
+            ['label'=>'类型','value'=>@$model->type_list[$model->type] ],
             'name',
             'tel',
             'email:email',
@@ -38,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ip',
             'time',
             'other',
-            'status',
+            ['label'=>'状态','value'=>$model->status ==1?'确认':'未确认' ],
         ],
     ]) ?>
 
