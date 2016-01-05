@@ -12,6 +12,7 @@ use yii\helpers\StringHelper;
 $tag_list = ['scene'=>'翻新现场','qa'=>'翻新问答','trends'=>'佳园动态'];
 $table = is_object($model)?$model->tableName():'';
 ?>
+
 <?php if($table == 'zx_scene'){?>
 <li>
     <div class="secc_lihd secc_add_result">

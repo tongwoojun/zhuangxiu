@@ -46,7 +46,7 @@ use yii\helpers\StringHelper;
 </div>
 
 <div class="border-all fl mb20" style="width:746px;padding: 10px 18px 2px 18px;">
-    <div class="recom_tit pr">大家都在问<a href="<?=Url::to(['qa/list']);?>" class="pa more"></a></div>
+    <div class="recom_tit pr"><a href="<?=Url::to(['qa/list']);?>" >大家都在问</a><a href="<?=Url::to(['qa/list']);?>" class="pa more"></a></div>
     <div class="ques_list">
         <ul>
             <?php if(isset($all) && !empty($all)){foreach($all as $value){?>
@@ -64,7 +64,7 @@ use yii\helpers\StringHelper;
 
 <?php if(isset(Yii::$app->view->params['ads'][11])){ ?>
 <div class="ask_team border-all mb20 fr">
-    <div class="recom_tit">专家团队</div>
+    <div class="recom_tit"><a href="<?=Url::to(['team/list','type'=>2]);?>" >专家团队</a></div>
     <?php foreach(Yii::$app->view->params['ads'][11] as $key=>$value){?>
         <dl class="ask_team_list">
             <dt><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="120"></dt>
