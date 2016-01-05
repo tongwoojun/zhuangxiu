@@ -106,7 +106,7 @@ $this->title = '家园装潢网首页';
 <div class="in_fxxc">
     <?php if(isset(Yii::$app->view->params['ads'][6])){ ?>
 	<div class="in_module_header">
-        <a href="<?=Url::to(['scene/list']);?>" target="_blank"><span>翻新套餐</span></a>
+        <a href="<?=Url::to(['scene/index']);?>" target="_blank"><span>翻新现场</span></a>
         <em><b>597</b>个工地正在翻新</em>
     </div>
 	<div class="index_xgt">
