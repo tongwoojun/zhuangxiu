@@ -12,7 +12,6 @@ use yii\helpers\StringHelper;
 $tag_list = ['scene'=>'翻新现场','qa'=>'翻新问答','trends'=>'佳园动态'];
 $table = is_object($model)?$model->tableName():'';
 ?>
-
 <?php if($table == 'zx_scene'){?>
 <li>
     <div class="secc_lihd secc_add_result">
@@ -20,7 +19,7 @@ $table = is_object($model)?$model->tableName():'';
         <a href="<?=Url::to(['scene/detail','id'=>$model->id]);?>" class="question_lnk ect f_e7340c"><?=$model->title;?></a>
     </div>
     <div class="f_9f9f9f mb10">浏览数：<?=$model->views;?></div>
-    <div class="secc_lians"><?=StringHelper::truncate($model->content,55);?></div>
+    <div class="secc_lians"><?=StringHelper::truncate(strip_tags($model->content),55);?></div>
 </li>
 <?php }elseif($table == 'zx_qa'){?>
 <li>
@@ -29,7 +28,7 @@ $table = is_object($model)?$model->tableName():'';
         <a href="<?=Url::to(['qa/detail','id'=>$model->id]);?>" class="question_lnk ect f_e7340c"><?=StringHelper::truncate($model->question,50);?></a>
     </div>
     <div class="f_9f9f9f mb10">浏览数：<?=$model->views;?></div>
-    <div class="secc_lians"><?=StringHelper::truncate($model->answer,55);?></div>
+    <div class="secc_lians"><?=StringHelper::truncate(strip_tags($model->answer),55);?></div>
 </li>
 <?php }elseif($table == 'zx_trends'){?>
 <li>
@@ -38,7 +37,7 @@ $table = is_object($model)?$model->tableName():'';
         <a href="<?=Url::to(['trends/detail','id'=>$model->id]);?>" class="question_lnk ect f_e7340c"><?=$model->title;?></a>
     </div>
     <div class="f_9f9f9f mb10">浏览数：<?=$model->views;?></div>
-    <div class="secc_lians"><?=StringHelper::truncate($model->desc,55);?></div>
+    <div class="secc_lians"><?=StringHelper::truncate(strip_tags($model->desc),55);?></div>
 </li>
 <?php }else{?>
 <li>
@@ -47,6 +46,6 @@ $table = is_object($model)?$model->tableName():'';
         <a href="<?=Url::to([$model[tab].'/detail','id'=>$model[id]]);?>" class="question_lnk ect f_e7340c"><?=$model[title];?></a>
     </div>
     <div class="f_9f9f9f mb10">浏览数：<?=$model[views];?></div>
-    <div class="secc_lians"><?=StringHelper::truncate($model[stitle],55);?></div>
+    <div class="secc_lians"><?=StringHelper::truncate(strip_tags($model[stitle]),55);?></div>
 </li>
 <?php }?>
