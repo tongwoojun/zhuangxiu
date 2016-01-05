@@ -133,6 +133,7 @@ class SiteController extends FrontendController
         $model = new Form();
         if ($model->load(Yii::$app->request->post())) {
             $model->ip = Yii::$app->request->userIP;
+            var_dump($model->ip);exit;
             if ($model->save()) {
                 return ['status' => 1, 'info' => '提交成功'];
             }else{

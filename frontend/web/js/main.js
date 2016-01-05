@@ -129,6 +129,7 @@ function check_form_2(id){
     $('#'+id+" table input").each(function(){
         $(this).removeClass("errors");
     });
+
     $('#errors_msg').html("");
 
     var name = name_obj.val();
@@ -163,10 +164,6 @@ function check_form_2(id){
         return false;
     }
 }
-
-
-
-
 
 function show_error(obj,msg){
     obj.addClass('errors');
