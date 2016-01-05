@@ -5,7 +5,9 @@
  * Date: 16/1/5
  * Time: 16:34
  */
-use \yii\helpers\Url;
+use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 $this->title = '投诉建议';
 ?>
 
@@ -27,26 +29,44 @@ $this->title = '投诉建议';
             <span class="f20 mr10">投诉建议</span>COMPLAINT AND SUGGESTION
         </div>
         <div class="complaints_box">
-            <div class="complaints_img"><img src="images/150921_img18.jpg" width="772"></div>
+            <div class="complaints_img"><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img18.jpg" width="772"></div>
+            <?php $form = ActiveForm::begin(); ?>
+
+            <?php if(Yii::$app->getSession()->getFlash('error')){?>
+                <div class="help-block" style="text-align:center">
+                    <strong></strong><?=Yii::$app->getSession()->getFlash('error');?></strong>
+                </div>
+            <?php }?>
+            <?php if(Yii::$app->getSession()->getFlash('success')){?>
+                <div class="help-block" style="text-align:center">
+                    <strong><?=Yii::$app->getSession()->getFlash('success');?></strong>
+                </div>
+            <?php }?>
+
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tbody><tr>
+                <tbody>
+                <tr>
                     <td width="80">联系电话：</td>
-                    <td><input name="" type="text" class="input" style="width:200px;"></td>
+                    <td>
+                        <?= $form->field($model, 'tel', ['template' => "{input}\n{hint}\n{error}"])->textInput(['class'=>"input"]) ?>
+                    </td>
                 </tr>
                 <tr>
                     <td valign="top">你的意见：</td>
-                    <td><textarea name=""></textarea></td>
+                    <td>
+                        <?= $form->field($model, 'suggest',['template' => "{input}\n{hint}\n{error}"])->textarea() ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <a href="#" class="sui_btn">提交建议</a>
+                        <?= Html::submitButton('提交建议', ['class' => 'sui_btn']) ?>
                     </td>
                 </tr>
-                </tbody></table>
-
+                </tbody>
+            </table>
+            <?php ActiveForm::end(); ?>
         </div>
-
     </div>
 
     <div class="clearfix"></div>

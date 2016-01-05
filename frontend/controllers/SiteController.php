@@ -10,6 +10,7 @@ use common\models\Trends;
 use common\models\Qa;
 use common\models\Package;
 use common\models\Models;
+use common\models\Suggest;
 
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -70,7 +71,19 @@ class SiteController extends FrontendController
     }
 
     public function actionSuggest(){
-        return $this->render('suggest');
+        $model = new Suggest();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->getSession()->setFlash('success', '提交成功！');
+        }else{
+            $errors = '';
+            foreach($model->getErrors() as $error){
+                $errors .= $error[0].';';
+            }
+            Yii::$app->getSession()->setFlash('error', $errors);
+        }
+
+        return $this->render('suggest',['model' => $model,]);
     }
 
     public function actionHonor(){

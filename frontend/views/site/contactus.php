@@ -54,7 +54,7 @@ $this->title = '联系我们';
             </div>
             <div class="contact_box">
                 <h2>闵行店</h2>
-                <p><img src="images/150921_img16.jpg" width="595"></p>
+                <p><img src="<?=Yii::$app->request->baseUrl;?>/images/150921_img16.jpg" width="595"></p>
                 <p>地址：吴中路2366-2368号</p>
                 <p>电话：34208168、34208019</p>
             </div>
