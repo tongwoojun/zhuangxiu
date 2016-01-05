@@ -37,11 +37,11 @@ AppAsset::register($this);
         <div class="p_w">
             <span class="fr tn-person-r">
                 <?php if(Yii::$app->user->isGuest){?>
-                <a href="<?=Url::to(['site/login']);?>">登录</a>
-                <a href="<?=Url::to(['site/signup']);?>">注册</a>
+                <!--<a href="<?=Url::to(['site/login']);?>">登录</a>
+                <a href="<?=Url::to(['site/signup']);?>">注册</a>-->
                 <?php }else{?>
-                    欢迎，<?=Yii::$app->user->identity->username;?>
-                    <a href="<?=Url::to(['site/logout']);?>">退出</a>
+                <!--欢迎，<?=Yii::$app->user->identity->username;?>
+                    <a href="<?=Url::to(['site/logout']);?>">退出</a>-->
                 <?php }?>
                 <a href="javascript:void(0);" onclick="Addme()">收藏本站</a>
                 <font class="f_e7340c pl40">翻新热线：400-820-3213</font>  （09:30-18:00）</span>
