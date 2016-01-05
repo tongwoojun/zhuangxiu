@@ -7,17 +7,11 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\SuggestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Suggests';
+$this->title = '投诉&建议';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="suggest-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Suggest', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -31,7 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'ip',
             'time',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [   'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}',
+            ],
         ],
     ]); ?>
 
