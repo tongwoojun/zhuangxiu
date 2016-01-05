@@ -113,7 +113,7 @@ AppAsset::register($this);
         </div>
         
         <div class="firend_nav fl">
-            <p><a href="#">关于我们</a></p>
+            <p><a href="site/aboutus">关于我们</a></p>
             <p><a href="#">诚聘英才</a></p>
             <p><a href="#">网站合作</a></p>
         </div>
@@ -129,10 +129,10 @@ AppAsset::register($this);
     <div class="p_w">
         <div class="footer-nav tc">
             <a href="#">合作媒体</a>|
-            <a href="#">关于我们</a>|
-            <a href="#">联系我们</a>|
-            <a href="#">法律声明</a>|
-            <a href="#">行业合作</a>            
+            <a href="<?=Url::to(['site/aboutus']);?>">关于我们</a>|
+            <a href="<?=Url::to(['site/contactus']);?>">联系我们</a>|
+            <a href="<?=Url::to(['site/aboutus']);?>">法律声明</a>|
+            <a href="<?=Url::to(['site/aboutus']);?>">行业合作</a>
         </div>
         <div class="tc f_9f9f9f mb30">上海家翻新信息技术服务有限公司  版权所有    Copyright ©2000- 2015   homerenew.com.cn Inc. All Rights Reserved.  </div>
         <div class="tc">

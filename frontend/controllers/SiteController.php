@@ -61,6 +61,23 @@ class SiteController extends FrontendController
         return $this->render('search',['title'=>$title,'dataProvider'=>$dataProvider]);
     }
 
+    public function actionAboutus(){
+        return $this->render('aboutus');
+    }
+
+    public function actionContactus(){
+        return $this->render('contactus');
+    }
+
+    public function actionSuggest(){
+        return $this->render('suggest');
+    }
+
+    public function actionHonor(){
+        return $this->render('honor');
+    }
+
+
     #登录
     public function actionLogin(){
         if (!\Yii::$app->user->isGuest) {
