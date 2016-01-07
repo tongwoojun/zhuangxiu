@@ -103,6 +103,10 @@ $this->title = '家园装潢网首页';
 </div>
 <?php }?>
 
+<?php if(isset(Yii::$app->view->params['ads'][17])){ foreach(Yii::$app->view->params['ads'][17] as $key=>$value){?>
+    <div class="in_bill"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
+<?php }}?>
+
 <div class="in_fxxc">
     <?php if(isset(Yii::$app->view->params['ads'][6])){ ?>
 	<div class="in_module_header">
@@ -130,8 +134,7 @@ $this->title = '家园装潢网首页';
 	</div>
     <?php }?>
 </div>
-<?php if(isset(Yii::$app->view->params['ads'][8])){ ?>
-    <?php foreach(Yii::$app->view->params['ads'][8] as $key=>$value){?>
+<?php if(isset(Yii::$app->view->params['ads'][8])){ foreach(Yii::$app->view->params['ads'][8] as $key=>$value){?>
     <div class="in_bill"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
 <?php }}?>
 
