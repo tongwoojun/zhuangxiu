@@ -47,7 +47,7 @@ class AskForm extends \yii\db\ActiveRecord
 
             ['type', 'default', 'value' =>3],
             ['status', 'default', 'value' =>0],
-            ['ip', 'default', 'value' =>0],
+            ['ip', 'default', 'value' =>Yii::$app->request->userIP],
             ['time', 'default', 'value' =>date('Y-m-d H:i:s')],
 
             [['name'], 'string', 'max' => 5,'min'=>2],
@@ -55,7 +55,8 @@ class AskForm extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 50,'min'=>3],
             [['adress'], 'string', 'max' => 50,'min'=>5],
 
-            [['tel', 'ip'], 'string', 'max' => 12],
+            [['tel'], 'string', 'max' => 12],
+            [['ip'], 'string', 'max' => 16],
             [['email', 'desc', 'other'], 'string', 'max' => 225],
             ['status', 'default', 'value' =>0],
         ];

@@ -34,7 +34,7 @@ class Suggest extends \yii\db\ActiveRecord
             [['tel'], 'string', 'max' => 12],
             [['suggest'], 'string', 'max' => 500],
             ['ip', 'default', 'value' =>Yii::$app->request->userIP],
-            [['ip'], 'string', 'max' => 13],
+            [['ip'], 'string', 'max' => 16],
         ];
     }
 

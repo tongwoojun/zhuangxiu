@@ -42,7 +42,7 @@ class Form extends \yii\db\ActiveRecord
             ['time', 'default', 'value' =>date('Y-m-d H:i:s')],
             [['name', 'adress', 'title'], 'string', 'max' => 50],
             [['tel'], 'string', 'max' => 12],
-            [['ip'], 'string', 'max' => 22],
+            [['ip'], 'string', 'max' => 16],
             [['email', 'desc', 'other'], 'string', 'max' => 225],
             ['status', 'default', 'value' =>0],
         ];
