@@ -104,7 +104,7 @@
 	border:1px solid #eaeaea;
 }
 /*翻新套餐*/
-.in_fxtc{}
+.in_fxtc{margin-bottom: 40px;}
 .in_fxtc ul{zoom:1; width:1210px;}
 .in_fxtc li{
 	float:left;

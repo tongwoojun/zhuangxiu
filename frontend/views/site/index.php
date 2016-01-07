@@ -135,10 +135,10 @@ $this->title = '家园装潢网首页';
     <?php }?>
 </div>
 <?php if(isset(Yii::$app->view->params['ads'][8])){ foreach(Yii::$app->view->params['ads'][8] as $key=>$value){?>
-    <div class="in_bill"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
+    <div class="in_fxtc"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
 <?php }}?>
 
-<div>
+<div >
 	<div class="in_news fl">
 		<div class="in_module_header">
             <a href="<?=Url::to(['trends/index']);?>" target="_blank"><span>佳园动态</span></a>
