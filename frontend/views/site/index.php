@@ -131,8 +131,9 @@ $this->title = '家园装潢网首页';
     <?php }?>
 </div>
 <?php if(isset(Yii::$app->view->params['ads'][8])){ ?>
-    <div class="in_bill"><a href="<?=Yii::$app->view->params['ads'][8][0]['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][8][0]['img'];?>" width="1198" height="98" alt="<?=Yii::$app->view->params['ads'][8][0]['name'];?>" style="display:block;"/></a></div>
-<?php }?>
+    <?php foreach(Yii::$app->view->params['ads'][8] as $key=>$value){?>
+    <div class="in_bill"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
+<?php }}?>
 
 <div>
 	<div class="in_news fl">
