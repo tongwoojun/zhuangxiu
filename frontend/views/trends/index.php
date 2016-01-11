@@ -61,7 +61,7 @@ use yii\helpers\StringHelper;
                 <ul>
                     <?php if(isset($data['3'])){foreach($data['3'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
-                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],25);?></a>
+                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],20);?></a>
                         </li>
                     <?php }}?>
                 </ul>
@@ -71,7 +71,7 @@ use yii\helpers\StringHelper;
                 <ul>
                     <?php if(isset($data['4'])){foreach($data['4'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
-                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],30);?></a>
+                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],20);?></a>
                         </li>
                     <?php }}?>
                 </ul>
@@ -81,7 +81,7 @@ use yii\helpers\StringHelper;
                 <ul>
                     <?php if(isset($data['5'])){foreach($data['5'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
-                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],30);?></a>
+                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],20);?></a>
                         </li>
                     <?php }}?>
                 </ul>
@@ -91,7 +91,7 @@ use yii\helpers\StringHelper;
                 <ul>
                     <?php if(isset($data['6'])){foreach($data['6'] as $key=>$value){ if($key>3){ continue;}?>
                         <li>
-                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],30);?></a>
+                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],20);?></a>
                         </li>
                     <?php }}?>
                 </ul>
