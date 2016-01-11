@@ -74,7 +74,7 @@ class Form extends \yii\db\ActiveRecord
         if (parent::beforeSave($insert)) {
             $time = date("Y-m-d H:i:s",strtotime("-1 day"));
             $count = self::find()->where(['ip'=>$this->ip])->andWhere(['>','time',$time])->count();
-            if($count >1){
+            if($count >10){
                 $this->addError('time', '您已经提交过了，不要重复提交');
                 return false;
             }

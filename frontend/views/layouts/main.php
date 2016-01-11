@@ -148,5 +148,6 @@ AppAsset::register($this);
 </div>
 <?php $this->endBody() ?>
 </body>
+<script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc33937da47c503b90f6708bcab69793b' type='text/javascript'%3E%3C/script%3E")) </script>
 </html>
 <?php $this->endPage() ?>
