@@ -90,6 +90,11 @@ class SiteController extends FrontendController
         return $this->render('honor');
     }
 
+    #错误页面
+    public function actionError(){
+        return $this->redirect(['index']);
+    }
+
 
     #登录
     public function actionLogin(){
