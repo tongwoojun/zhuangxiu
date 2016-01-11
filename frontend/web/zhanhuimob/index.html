@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>上海市2016年首届二手房翻新设计装修节资讯展</title>
+<meta name="keywords" content="二手房翻新,旧房翻新,装修展会,装潢展会,婚房装修,厨房翻新,卫生间翻新,翻新效果图,翻新装潢网"/>
+<link href="css/master.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){  
+    $(function () {
+		$("#gotop").click(function(){
+			$('body,html').animate({scrollTop:0},150);
+			return false;
+		});
+	});   
+});
+
+function show(i){
+	$(i).show();
+}
+function hiden(i){
+ $(i).hide();//hide()函数,实现隐藏,括号里还可以带一个时间参数(毫秒)例如hide(2000)以2000毫秒的速度隐藏,还可以带slow,fast
+}
+
+</script>
+</head>
+
+<body>
+<div class="wrap">
+	<div><img src="images/img01.png" /></div>
+	<div class="top1 pr">
+		<img src="images/img02.png" />
+		<a href="javascript:void(0)" class="btn01 pa layer_btn_show"></a>
+	</div>
+	<div><img src="images/img03.png" /></div>
+	<div><img src="images/img04.png" /></div>
+	<div><img src="images/img05.png" /></div>
+	<div><img src="images/img06.png" /></div>
+	<div><img src="images/img07.png" /></div>
+	<div><img src="images/img_08.png" /></div>
+	<div class="layer_btn_show"><img src="images/img_09.png" /></div>
+	<div><img src="images/img_10.png" /></div>
+	<div class="layer_btn_show"><img src="images/img_11.png" /></div>
+	<div><img src="images/img_12.png" /></div>
+	<div class="layer_btn_show"><img src="images/img_13.png" /></div>
+	<div style="margin-top:2em;"><img src="images/img_15.png" /></div>
+</div>
+
+<div class="bottom_fiexd_box">
+	<img src="images/img_17.png" />
+	<a href="javascript:void(0)" class="btn02 pa layer_btn_show"></a>
+</div>
+
+
+<!--填写信息--> 
+<div class="msgbox" id="rule-box1" style="display:none;"></div>
+<div class="box" id="rule-main" style="display:none;">
+	<p><img src="images/layer_img01.png" width="100%" style="display:block;" /></p>		
+	<div class="layer_from form-div">
+		<table border="0" cellspacing="0" cellpadding="0" width="100%">
+			<tr>
+				<td align="right"><font class="layer_row"><span style="color:#cf2555">*</span>您的姓名：</font></td>
+				<td><input name="name" type="text" placeholder="请填写姓名" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font class="layer_row"><span style="color:#cf2555">*</span>手机号码：</font></td>
+				<td><input name="tel" type="text" placeholder="请填写电话" /></td>
+			</tr>
+			<tr>
+				<td align="right"><font class="layer_row"><span style="color:#cf2555">*</span>邮寄地址：</font></td>
+				<td><input name="address" type="text" placeholder="请填写地址" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<div>
+						<a href="javascript:void(0);" class="layer_btn entryFee">
+							
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tc layer_ts">
+		<p>报名后,主办方将电话联系并邮寄邀请函至您家中</p>
+		<p>活动当天,请携邀请函入场</p>
+	</div>
+</div>
+
+<div class="alert">
+	<span></span>
+	<input type="button" value="确定"/>
+</div>
+
+
+<script type="text/javascript">
+function strlen(str){
+    var len = 0;
+    for (var i=0; i<str.length; i++) { 
+     var c = str.charCodeAt(i); 
+    //单字节加1 
+     if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) { 
+       len++; 
+     } 
+     else { 
+      len+=2; 
+     } 
+    } 
+    return len;
+}
+var reg = new RegExp("^[0-9]*$");
+
+
+
+$(function() {
+	 
+	$(".layer_btn_show").click(function(){
+		$("#rule-box1").hide();
+		$("rule-main").hide();
+		
+		$("#rule-main").show();
+		$("#rule-box1").show();
+		return false;//关键是这里，阻止冒泡 
+	});	
+	$("#rule-main").click(function(){ 
+	}); 
+	$(document).on('click', '.msgbox', function(){
+		$("#rule-box1").hide();
+		$(".alert").hide();
+		$("#rule-main").hide();
+	});
+	$(document).on('click', '.alert input', function(){
+		$(".alert").hide();
+		//$("#rule-box1").hide();
+	});
+
+	$(document).on('click', '.entryFee', function(){
+		var that = $(this);
+		var name = that.parents('.form-div').find("[name='name']").val();
+		var tel = that.parents('.form-div').find('[name="tel"]').val();
+		var address = that.parents('.form-div').find('[name="address"]').val();
+		
+		if (name == "") {
+			$(".alert").show().find("span").html("请输入姓名");
+			$("#rule-box1").show();
+			return false;
+		}
+		if	(tel == "") {
+			$(".alert").show().find("span").html("请输入联系方式");
+			$("#rule-box1").show();
+			return false;
+		}
+		if	(address == "") {
+			$(".alert").show().find("span").html("请输入地址");
+			$("#rule-box1").show();
+			return false;
+		}
+		
+
+	
+		if(strlen(tel)!=11){
+		//alert("手机格式不对，请核查");
+		$(".alert").show().find("span").html("手机格式不对，请核查");
+		$("#rule-box1").show();
+		return false;
+		}
+		if(!reg.test(tel)){
+		$(".alert").show().find("span").html("手机格式不对，请核查!");
+		$("#rule-box1").show();
+			return false;
+		}
+
+		$.ajax({
+		 type: "POST",
+		 url: "http://www.homerenew.com.cn/0131/data.php",
+		 data:   "name="+name+"&tel="+tel+"&address="+address,
+		 success: function(msg){ 
+			if(msg=="ok"){
+				alert("报名提交成功!");
+				//window.location.reload();
+				that.parents('.form-div').find("[name='name']").val('');
+				that.parents('.form-div').find('[name="tel"]').val('');
+				that.parents('.form-div').find('[name="address"]').val('');
+				$("#rule-box1").hide();
+				$("#rule-main").hide();
+			}
+			else
+			{
+			alert(msg);	
+			}
+		  } 
+		
+		})
+		return false;
+	});
+	
+})
+
+</script>
+
+<div style="display:none">
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?370137e475f483583aa6dbb142ab74d5";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256338629'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1256338629%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1256338629).'" width="0" height="0"/>';?>
+</body>
+</html>
