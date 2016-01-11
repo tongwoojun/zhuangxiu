@@ -445,11 +445,11 @@ $(function() {
 		}
 
 		$.ajax({
-		 type: "POST",
-		 url: "http://www.homerenew.com.cn/0131/data.php",
-		 data:   "name="+name+"&tel="+tel+"&address="+address,
+		 type: "GET",
+		 url: "http://www.homerenew.com.cn/action/getform",
+		 data:   "Form[type]=3&Form[name]="+name+"&Form[tel]="+tel+"&Form[adress]="+address,
 		 success: function(msg){ 
-			if(msg=="ok"){
+			if(msg.status=="1"){
 				alert("报名提交成功!");
 				//window.location.reload();
 				that.parents('.form-div').find("[name='name']").val('');
@@ -458,7 +458,7 @@ $(function() {
 			}
 			else
 			{
-			alert(msg);	
+			    alert(msg.info);
 			}
 		  } 
 		
