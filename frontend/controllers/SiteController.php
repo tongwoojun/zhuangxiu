@@ -95,7 +95,6 @@ class SiteController extends FrontendController
         return $this->redirect(['index']);
     }
 
-
     #登录
     public function actionLogin(){
         if (!\Yii::$app->user->isGuest) {
