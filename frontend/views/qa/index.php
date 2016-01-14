@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
+$this->title = '翻新问答';
 ?>
 <div class="p_w">
 <div class="place">

@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
+$this->title = '佳园动态';
 ?>
 <div class="p_w">
     <div class="place">

@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
+$this->title = '专业团队';
 ?>
 
 <div class="p_w">

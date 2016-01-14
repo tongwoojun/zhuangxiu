@@ -3,7 +3,7 @@
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use yii\widgets\LinkPager;
-
+$this->title = '翻新现场';
 $list = $this->params['list'];
 $this->registerJsFile("@web/js/jquery.min.js",['position' => \yii\web\View::POS_HEAD]);
 $this->registerJsFile("@web/js/masonry-docs.min.js",['position' => \yii\web\View::POS_HEAD]);
