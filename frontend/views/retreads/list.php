@@ -7,6 +7,9 @@
  */
 use yii\widgets\ListView;
 use yii\widgets\LinkPager;
+$this->title = '翻新套餐列表 - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="翻新套餐列表 - 翻新装潢网 - 佳园装潢官网"/>';
+$this->metaTags[]='<meta name="description" content="翻新套餐列表, 翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <div class="p_w">
 <div class="place"><a href="#">首页</a><span>翻新套餐</span></div>

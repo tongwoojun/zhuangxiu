@@ -8,6 +8,9 @@
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use yii\widgets\LinkPager;
+$this->title = '搜索'.Yii::$app->params['search']['keyword'].' - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="搜索'.Yii::$app->params['search']['keyword'].' - '.Yii::$app->params['search']['title'].' – 翻新装潢网 - 佳园装潢官网"/>';
+$this->metaTags[]='<meta name="description" content="搜索'.Yii::$app->params['search']['keyword'].' - '.Yii::$app->params['search']['title'].' – 翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <div class="p_w">
     <div class="place">

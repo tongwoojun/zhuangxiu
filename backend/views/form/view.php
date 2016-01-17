@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Form */
@@ -25,8 +26,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'ip',
             'time',
             'other',
-            ['label'=>'状态','value'=>$model->status ==1?'确认':'未确认' ],
+            ['label'=>'状态','value'=>$model->new_status_list[$model->status] ],
         ],
     ]) ?>
+
+</div>
+
+
+<div class="form-update">
+
+    <?php $form = ActiveForm::begin(); ?>
+
+    <?= Html::a('确认', ['updatestatus', 'id' => $model->id, 'status' =>-1], ['class' => 'btn btn-success']) ?>
+
+    <?= Html::a('取消', ['updatestatus', 'id' => $model->id, 'status' =>-1], ['class' => 'btn btn-primary']) ?>
+
+    <?php ActiveForm::end(); ?>
 
 </div>

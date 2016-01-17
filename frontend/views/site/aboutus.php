@@ -6,7 +6,7 @@
  * Time: 16:34
  */
 use \yii\helpers\Url;
-$this->title = '关于我们';
+$this->title = '关于我们 - 翻新装潢网 - 佳园装潢官网';
 ?>
 
 <div class="p_w">

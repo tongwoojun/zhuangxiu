@@ -8,7 +8,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-$this->title = '投诉建议';
+$this->title = '投诉建议 - 翻新装潢网 - 佳园装潢官网';
 ?>
 
 <div class="p_w">

@@ -3,6 +3,11 @@
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use yii\widgets\LinkPager;
+
+$this->title = '翻新问答列表 - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="翻新问答列表 - 翻新装潢网 - 佳园装潢官网"/>';
+$this->metaTags[]='<meta name="description" content="翻新问答列表, 翻新装潢网 - 佳园装潢官网"/>';
+
 ?>
 <div class="p_w">
     <div class="place">

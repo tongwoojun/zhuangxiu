@@ -2,7 +2,7 @@
 use \yii\helpers\Url;
 use \yii\helpers\Html;
 use yii\helpers\StringHelper;
-$this->title = '佳园装潢网首页';
+$this->title = '翻新装潢网 - 佳园装潢网首页';
 ?>
 <?= $this->registerJsFile('@web/js/swiper.min.js',['position' => \yii\web\View::POS_HEAD])?>
 <?= $this->registerCssFile('@web/css/swiper.min.css')?>

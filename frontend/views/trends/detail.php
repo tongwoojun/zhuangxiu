@@ -6,6 +6,10 @@
  * Time: 20:14
  */
 use yii\helpers\Url;
+
+$this->title = $model->title.' - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="'.$model->title.'"/>';
+$this->metaTags[]='<meta name="description" content="'.$model->title.',翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <div class="p_w">
     <div class="place">

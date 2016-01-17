@@ -7,6 +7,10 @@
  */
 use yii\helpers\Url;
 
+$this->title = $model->atitle.' - 翻新现场 - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="'.$model->atitle.'"/>';
+$this->metaTags[]='<meta name="description" content="'.$model->atitle.',翻新装潢网 - 佳园装潢官网"/>';
+
 $list = $this->params['list'];
 $type_list = isset($list['type'])?$list['type']:'';
 $acreage_list = isset($list['acreage'])?$list['acreage']:'';

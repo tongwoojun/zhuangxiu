@@ -7,6 +7,10 @@
  */
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+
+$this->title = $model->username.' - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="'.$model->username.'"/>';
+$this->metaTags[]='<meta name="description" content="'.$model->username.',翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <script type="text/javascript" src="<?=Yii::$app->request->baseUrl;?>/js/jquery.raty.min.js"></script>
 <div class="p_w">

@@ -7,6 +7,10 @@
  */
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+
+$this->title = $model->question.' - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="'.$model->question.'"/>';
+$this->metaTags[]='<meta name="description" content="'.$model->question.',翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <div class="p_w">
     <div class="place">

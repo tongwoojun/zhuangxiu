@@ -5,9 +5,11 @@
  * Date: 15/12/11
  * Time: 14:33
  */
-use yii\helpers\Url;
-use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+$this->title = '发表问题 - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="发表问题 - 翻新装潢网 - 佳园装潢官网"/>';
+$this->metaTags[]='<meta name="description" content="发表问题, 翻新装潢网 - 佳园装潢官网"/>';
 ?>
 
 <div class="p_w">
@@ -15,7 +17,7 @@ use yii\widgets\ActiveForm;
     <div class="place">
         <a href="#">首页</a>
         <a href="#">翻新问答</a>
-        <span>问答列表</span>
+        <span>发表问题</span>
     </div>
     <div class="con_left fl">
         <div class="border-all ques_list ques_from">

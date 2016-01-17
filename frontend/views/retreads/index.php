@@ -9,7 +9,7 @@
 use \yii\helpers\Url;
 use \yii\helpers\Html;
 use yii\helpers\StringHelper;
-$this->title = '翻新套餐';
+$this->title = '翻新套餐 - 翻新装潢网 - 佳园装潢官网';
 ?>
 <div class="p_w">
     <div class="in_module_header">

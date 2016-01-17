@@ -8,6 +8,10 @@
 use yii\widgets\ListView;
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
+
+$this->title = $title.' - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="'.$title.' - 翻新装潢网 - 佳园装潢官网"/>';
+$this->metaTags[]='<meta name="description" content="'.$title.', 翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <?php
 /* @var $this yii\web\View */

@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
-$this->title = '翻新问答';
+$this->title = '翻新问答 - 翻新装潢网 - 佳园装潢官网';
 ?>
 <div class="p_w">
 <div class="place">

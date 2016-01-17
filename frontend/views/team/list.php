@@ -8,16 +8,21 @@
 
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+if($_GET['type']==1){
+    $title = '队长列表';
+}else{
+    $title = '设计师列表';
+}
+
+$this->title = $title.' - 翻新装潢网 - 佳园装潢官网';
+$this->metaTags[]='<meta name="keywords" content="'.$title.' - 翻新装潢网 - 佳园装潢官网"/>';
+$this->metaTags[]='<meta name="description" content="'.$title.', 翻新装潢网 - 佳园装潢官网"/>';
 ?>
 <div class="p_w">
     <div class="place">
         <a href="./">首页</a>
         <a href="<?=Url::to(['team/index']);?>">专业团队</a>
-        <?php if($_GET['type']==1){?>
-            <span>队长列表</span>
-        <?php }else{?>
-            <span>设计师列表</span>
-        <?php }?>
+        <span><?=$title;?></span>
     </div>
     <div class="con_left fl">
         <div class="leader_list border-all">

@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = $name;
+$this->title = '信息提示 - 翻新装潢网 - 佳园装潢网首页';
 ?>
 <div class="site-error">
 

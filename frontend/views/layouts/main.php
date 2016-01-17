@@ -15,7 +15,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
-    $url = Yii::$app->controller->id.'/index';
+    $url = Yii::$app->controller->id.'/'.Yii::$app->controller->action->id;
     $this->metaTags[]='<meta name="keywords" content="'.$this->params['memus'][$url]['keywords'].'"/>';
     $this->metaTags[]='<meta name="description" content="'.$this->params['memus'][$url]['description'].'"/>';
     ?>

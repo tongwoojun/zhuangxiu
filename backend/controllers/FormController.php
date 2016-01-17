@@ -118,4 +118,12 @@ class FormController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionUpdatestatus($id,$status)
+    {
+        $model = $this->findModel($id);
+        $model->status = $status;
+        return $this->redirect(['view', 'id' => $model->id]);
+    }
 }

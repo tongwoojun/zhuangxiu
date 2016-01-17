@@ -8,6 +8,8 @@
 
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
+
+$this->title = '翻新装潢网 - 佳园装潢网测量评估';
 ?>
 <div class="p_w">
     <div class="place">

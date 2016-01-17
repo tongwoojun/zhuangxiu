@@ -39,8 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'other',
             [
                 'attribute' => 'status',
-                'filter' =>[0=>'未确认',1=>'确认'],
-                'value'=> function($data){return $data->status ==1?'确认':'未确认';},
+                'filter' =>$searchModel->new_status_list,
+                'value'=> function($data){
+                    return $data->new_status_list[$data->status];
+                },
             ],
 
             [   'class' => 'yii\grid\ActionColumn',
