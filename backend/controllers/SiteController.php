@@ -26,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','cacheflush'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -79,5 +79,11 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionCacheflush()
+    {
+        Yii::$app->cache->flush();
+        return $this->render('flush');
     }
 }

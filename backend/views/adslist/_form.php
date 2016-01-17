@@ -22,6 +22,12 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="row">
+        <div class="col-lg-2">
+            <?= $form->field($model, 'type')->dropDownList($model->type_list,['prompt' => '请选择']); ?>
+        </div>
+    </div>
+
+    <div class="row" id="url">
         <div class="col-lg-6">
             <?= $form->field($model, 'url')->textInput(['maxlength' => true])->hint("http:// 开头"); ?>
         </div>
@@ -39,6 +45,16 @@ use yii\widgets\ActiveForm;
             }else {
                 echo $form->field($model, 'img')->fileInput();
             }?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2">
+            <?= $form->field($model, 'img_width')->textInput()->hint("px结尾"); ?>
+        </div>
+
+        <div class="col-lg-2">
+            <?= $form->field($model, 'img_height')->textInput()->hint("px结尾"); ?>
         </div>
     </div>
 

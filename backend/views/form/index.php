@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             [
                 'attribute' => 'type',
                 'filter' => $searchModel->type_list,
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             [   'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
+                'template' => '{view} {delete}',
             ],
         ],
     ]); ?>

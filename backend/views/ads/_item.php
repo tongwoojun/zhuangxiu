@@ -17,6 +17,7 @@ use yii\helpers\Html;
         <?php }?>
         <div class="caption">
             <h3><?=$model->name;?></h3>
+            <p>类型：<?=$model->type_list[$model->type];?></p>
             <p>描述：<?=$model->desc;?></p>
             <p>跳转：<?=$model->url;?></p>
             <p>排序：<?=$model->sort;?></p>

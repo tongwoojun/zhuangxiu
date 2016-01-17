@@ -21,6 +21,7 @@ use yii\base\Model;
  */
 class Adslist extends Models
 {
+    public $type_list = [1=>'图片',2=>'文字',3=>'FLASH'];
     /**
      * @inheritdoc
      */
@@ -36,11 +37,12 @@ class Adslist extends Models
     {
         return [
             [['aid', 'name'], 'required'],
-            [['aid', 'sort', 'status'], 'integer'],
+            [['aid', 'type', 'sort', 'status'], 'integer'],
             [['desc'], 'string'],
             [['stime', 'etime'], 'safe'],
             [['name'], 'string', 'max' => 50],
             [['url', 'img'], 'string', 'max' => 225],
+            [['img_width', 'img_height'], 'string', 'max' => 10],
         ];
     }
 
@@ -52,10 +54,13 @@ class Adslist extends Models
         return [
             'id' => 'ID',
             'aid' => '广告',
+            'type'=>'类型',
             'name' => '名称',
             'desc' => '描述',
             'url' => '链接',
             'img' => '图片',
+            'img_width'=>'图片宽度',
+            'img_height'=>'图片高度',
             'sort' => '排序',
             'stime' => '开始时间',
             'etime' => '结束时间',

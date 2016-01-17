@@ -26,6 +26,8 @@ $list = Key::getList();
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
+            'title',
+            'atitle',
             [
                 'attribute' => 'area',
                 'filter' => $list['area'],
@@ -50,9 +52,9 @@ $list = Key::getList();
             //'space',
             //'acreage',
             // 'progress',
-            // 'title',
+
             // 'img',
-            // 'atitle',
+
             // 'content:ntext',
             // 'uname',
             // 'uinfo',
@@ -60,7 +62,7 @@ $list = Key::getList();
             // 'udesigner',
             // 'uwork',
             // 'ustatus',
-            'time',
+            //'time',
             [
                 'attribute' => 'status',
                 'filter' =>[0=>'无效',1=>'有效'],

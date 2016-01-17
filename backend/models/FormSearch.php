@@ -41,7 +41,7 @@ class FormSearch extends Form
      */
     public function search($params)
     {
-        $query = Form::find();
+        $query = Form::find()->orderBy('id desc');
 
         // add conditions that should always apply here
 
