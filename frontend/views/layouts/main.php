@@ -12,6 +12,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
@@ -46,7 +47,10 @@ AppAsset::register($this);
                 <a href="javascript:void(0);" onclick="Addme()">收藏本站</a>
                 <font class="f_e7340c pl40">翻新热线：400-820-3213</font>  （09:30-18:00）</span>
             <span>
-                <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/wx.png" width="16" /></a>
+                <a href="#" class="weixin">
+					<img src="<?=Yii::$app->request->baseUrl;?>/images/wx.png" width="16" />
+					<span><img src="<?=Yii::$app->request->baseUrl;?>/images/150729_bg06.jpg" width="94"></span>
+				</a>
                 <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/sina.png" width="16" /></a>
             </span>
         </div>

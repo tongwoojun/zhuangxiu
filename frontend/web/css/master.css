@@ -571,7 +571,7 @@ a.ask_side_btn:hover{color:#fff;}
 	width:240px;
 	height:110px;
 	z-index:1;
-	display:block;
+	display:none;
 	text-align:center;
 	line-height:46px;
 	padding-top:25px;

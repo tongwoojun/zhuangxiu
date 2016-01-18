@@ -50,6 +50,7 @@ $this->title = '专业团队 - 翻新装潢网 - 佳园装潢官网';
     </div>
     <div class="in_module_header" style="margin-top:21px;">
         <a href="<?=Url::to(['team/list','type'=>2]);?>"><span>设计师团队</span></a>
+		<a href="<?=Url::to(['team/list','type'=>2]);?>" class="pa more" target="_blank"></a>
     </div>
     <div class="leader_list border-t" style="padding-left:30px;">
         <ul>
@@ -70,6 +71,7 @@ $this->title = '专业团队 - 翻新装潢网 - 佳园装潢官网';
 
     <div class="in_module_header">
         <a href="<?=Url::to(['team/list','type'=>1]);?>"><span>施工队长团队</span></a>
+		<a href="<?=Url::to(['team/list','type'=>1]);?>" class="pa more" target="_blank"></a>
     </div>
     <div class="leader_list border-t" style="padding-left:30px;">
         <ul>

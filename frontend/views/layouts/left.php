@@ -24,9 +24,9 @@ if(in_array(1,$left_list)){
     <form id="form_2" action="<?=Url::to(['site/ajaxform']);?>" method="post">
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
         <input type="hidden" name="Form[type]" value="2">
-        <p class="mb10"><label class="zt_widthlabel">姓名：</label><input id="form_2_name" name="Form[name]" type="text" class="input inputFocus grays" value="" ov="填写真实姓名" style="width: 244px;" /></p>
-        <p class="mb10"><label class="zt_widthlabel">电话：</label><input id="form_2_tel" name="Form[tel]" type="text" class="input inputFocus grays" value="" ov="填写手机号码" style="width: 244px;" /></p>
-        <p class="mb10"><label class="zt_widthlabel">地址：</label><input id="form_2_adress" name="Form[adress]" type="text" class="input inputFocus grays" value="" ov="填写手机号码" style="width: 244px;" /></p>
+        <p class="mb10"><label class="zt_widthlabel">姓名：</label><input id="form_2_name" name="Form[name]" type="text" class="input inputFocus grays" value="填写真实姓名" ov="填写真实姓名" style="width: 244px;" /></p>
+        <p class="mb10"><label class="zt_widthlabel">电话：</label><input id="form_2_tel" name="Form[tel]" type="text" class="input inputFocus grays" value="填写手机号码" ov="填写手机号码" style="width: 244px;" /></p>
+        <p class="mb10"><label class="zt_widthlabel">地址：</label><input id="form_2_adress" name="Form[adress]" type="text" class="input inputFocus grays" value="填写手机号码" ov="填写手机号码" style="width: 244px;" /></p>
         <p class="mb10"><label class="zt_widthlabel">类型：</label>
             <select id="form_2_title" name="Form[title]">
                 <?php if($list && isset($list['type'])){ foreach($list['type'] as $key=>$value){ ?>

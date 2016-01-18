@@ -51,6 +51,15 @@ textarea{vertical-align: top;}
 	color:#7f7f7f;
 	padding-top:13px;
 }
+.top_nav .weixin{ position:relative;}
+.top_nav .weixin span{
+	position:absolute;
+	display:none;
+	z-index:9;
+}
+.top_nav .weixin:hover span{
+	display:block;
+}
 .tn-person-r a{padding:0 15px;color:#7f7f7f;}
 .tn-person-r a:hover{color:#e7340c;}
 .top_sub{height:120px;}
