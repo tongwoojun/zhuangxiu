@@ -163,7 +163,7 @@ $(document).ready(function(){
 					<input name="" type="text" style="width:209px;" />
 				</span>
 				<span class="user_btn">
-				<a href="#"></a>
+				<a href="#" class="entryFee"></a>
 				</span>
 			</div>
 			<div class="list_052" style="text-align:center">
@@ -180,21 +180,21 @@ $(document).ready(function(){
 					<table border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="60" align="right">姓名：</td>
-							<td><input name="" type="text" style="width:116px;" /></td>
+							<td><input name="name" type="text" style="width:116px;" /></td>
 						</tr>
 						<tr>
 							<td align="right">手机：</td>
-							<td><input name="" type="text" style="width:116px;" /></td>
+							<td><input name="tel" type="text" style="width:116px;" /></td>
 						</tr>
 						<tr>
 							<td align="right">地址：</td>
-							<td><input name="" type="text" style="width:116px;" /></td>
+							<td><input name="address" type="text" style="width:116px;" /></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td>
 								<span class="user_btn">
-									<a href="#"></a>
+									<a href="#" class="entryFee"></a>
 								</span>
 							</td>
 						</tr>
@@ -429,8 +429,6 @@ $(function() {
 			$("#rule-box1").show();
 			return false;
 		}
-		
-
 	
 		if(strlen(tel)!=11){
 		//alert("手机格式不对，请核查");
