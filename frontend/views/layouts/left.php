@@ -39,6 +39,48 @@ if(in_array(1,$left_list)){
         <a href="javascript:void(0);" class="reserve_btn" onclick="Submit('form_2');">立即报名</a>
     </form>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        $(function(){
+            $.each($(".inputFocus"),function(index,input){
+                if($(input).val()==$(input).attr("ov")){
+                    $(input).addClass("grays");
+                }
+            });
+        });
+        $(".inputFocus").on("focus",function(){
+            var ov=$.trim($(this).attr("ov"));
+            var val=$.trim($(this).val());
+            $(this).removeClass("grays");
+            if(val==ov){
+                $(this).val("");
+            }
+
+        });
+        $(".inputFocus").on("blur",function(){
+            var ov=$.trim($(this).attr("ov"));
+            var val=$.trim($(this).val());
+            if(val==""){
+                $(this).val(ov).addClass("grays");
+            }
+        });
+
+        $('.J-search-box_tabs a').click(function(){
+            $('.J-search-box_tabs').hide();
+            $("#query_filde").attr('value',$(this).attr('value'));
+            $("#query_filde").text($(this).text());
+        });
+    });
+
+    function signTitles(bool) {
+        if (bool) {
+            $('.J-search-box_tabs').show();
+        } else {
+            $('.J-search-box_tabs').hide();
+        }
+    }
+</script>
 <?php }?>
 
 <?php

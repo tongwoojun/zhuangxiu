@@ -12,9 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a('添加', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
