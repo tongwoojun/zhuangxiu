@@ -2,6 +2,7 @@
  * Created by a7 on 11/24/15.
  */
 lunbo();
+
 function lb_getStyle(obj,name){
     if(obj.currentStyle){
         return obj.currentStyle[name];
@@ -73,7 +74,7 @@ function lunbo(){
             tab();
         }
     }
-    oPre.onclick = function()
+    /*oPre.onclick = function()
     {
         now--;
         if(now ==-1)
@@ -90,7 +91,7 @@ function lunbo(){
             now = 0;
         }
         tab();
-    }
+    }*/
     var timer = setInterval(oNext.onclick,3000); //滚动间隔时间设置
     oDiv.onmouseover = function()
     {
