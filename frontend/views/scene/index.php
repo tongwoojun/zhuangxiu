@@ -113,7 +113,7 @@ $this->registerJsFile("@web/js/masonry-docs.min.js",['position' => \yii\web\View
         $(".form-data").each(function(){
             var name = $(this).attr('name');
             var value = $(this).val();
-            if(value ==0){
+            if(value == 0){
                 value = '';
             }
             url += name+"="+value+"&";

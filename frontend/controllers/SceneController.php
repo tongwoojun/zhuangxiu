@@ -14,9 +14,9 @@ class SceneController extends FrontendController{
     public function actionIndex(){
         $this->getList();
         $searchModel = new SceneSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $where = $dataProvider->query->where;
-        return $this->render('index',['dataProvider' => $dataProvider,'where'=>$where]);
+        $where = Yii::$app->request->queryParams;
+        $dataProvider = $searchModel->search($where);
+        return $this->render('index',['dataProvider' => $dataProvider,'where'=>$where['SceneSearch']]);
     }
 
     public function actionDetail($id){
