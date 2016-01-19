@@ -33,32 +33,34 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <?php
-            if(!$model->isNewRecord){
-                if($model->img) {
-                    echo Html::img(Yii::$app->params['imgurl'] . $model->img, ['height' => 120]);
-                    echo "<br>";
-                }
-                echo $form->field($model, 'img')->fileInput();
-            }else {
-                echo $form->field($model, 'img')->fileInput();
-            }?>
+    <div id ='img' style="display: none">
+        <div class="row">
+            <div class="col-lg-6">
+                <?php
+                if(!$model->isNewRecord){
+                    if($model->img) {
+                        echo Html::img(Yii::$app->params['imgurl'] . $model->img, ['height' => 120]);
+                        echo "<br>";
+                    }
+                    echo $form->field($model, 'img')->fileInput();
+                }else {
+                    echo $form->field($model, 'img')->fileInput();
+                }?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2">
+                <?= $form->field($model, 'img_width')->textInput()->hint("px结尾"); ?>
+            </div>
+
+            <div class="col-lg-2">
+                <?= $form->field($model, 'img_height')->textInput()->hint("px结尾"); ?>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-2">
-            <?= $form->field($model, 'img_width')->textInput()->hint("px结尾"); ?>
-        </div>
-
-        <div class="col-lg-2">
-            <?= $form->field($model, 'img_height')->textInput()->hint("px结尾"); ?>
-        </div>
-    </div>
-
-    <div class="row">
+    <div class="row" id ='txt' style="display: none">
         <div class="col-lg-11">
             <?= $form->field($model, 'desc')->widget("pjkui\kindeditor\KindEditor",['clientOptions'=>['allowFileManager'=>'true','allowUpload'=>'true']]) ?>
         </div>
