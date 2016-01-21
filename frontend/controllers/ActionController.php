@@ -18,6 +18,8 @@ class ActionController extends FrontendController{
         $model = new Form();
         if ($model->load(Yii::$app->request->get())) {
             $model->ip = Yii::$app->request->userIP;
+            $model->name = urldecode($model->name);
+            $model->adress = urldecode($model->adress);
             if ($model->save()) {
                 return $this->toJson(['status' => 1, 'info' => '提交成功']);
             }else{

@@ -441,6 +441,8 @@ $(function() {
 		$("#rule-box1").show();
 			return false;
 		}
+        name = encodeURI(name);
+        address = encodeURI(address);
 
 		$.ajax({
 		 type: "GET",
