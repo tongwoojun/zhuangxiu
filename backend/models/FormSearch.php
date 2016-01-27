@@ -75,4 +75,42 @@ class FormSearch extends Form
 
         return $dataProvider;
     }
+
+
+    public function newsearch($params)
+    {
+        $query = Form::find()->where(['type'=>[1,4]])->orderBy('id desc');
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'type' => $this->type,
+            'time' => $this->time,
+            'status' => $this->status,
+        ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'tel', $this->tel])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'adress', $this->adress])
+            ->andFilterWhere(['like', 'desc', $this->desc])
+            ->andFilterWhere(['like', 'ip', $this->ip])
+            ->andFilterWhere(['like', 'other', $this->other]);
+
+        return $dataProvider;
+    }
 }

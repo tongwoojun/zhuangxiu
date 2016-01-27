@@ -42,6 +42,21 @@ class FormController extends Controller
     }
 
     /**
+     * Lists all Form models.
+     * @return mixed
+     */
+    public function actionNewindex()
+    {
+        $searchModel = new FormSearch();
+        $dataProvider = $searchModel->newsearch(Yii::$app->request->queryParams);
+
+        return $this->render('index_1', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
      * Displays a single Form model.
      * @param integer $id
      * @return mixed

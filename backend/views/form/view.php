@@ -33,14 +33,18 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 
+<!--
 <div class="form-update">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= Html::a('确认', ['updatestatus', 'id' => $model->id, 'status' =>-1], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('不操作', ['index', 'FormSearch[type]' => $model->type], ['class' => 'btn btn-info']) ?>
 
-    <?= Html::a('取消', ['updatestatus', 'id' => $model->id, 'status' =>-1], ['class' => 'btn btn-primary']) ?>
+    <?= Html::a('取消', ['updatestatus', 'id' => $model->id, 'status' =>-1], ['class' => 'btn btn-danger']) ?>
+
+    <?= Html::a('确认', ['updatestatus', 'id' => $model->id, 'status' =>1], ['class' => 'btn btn-success']) ?>
 
     <?php ActiveForm::end(); ?>
 
 </div>
+-->

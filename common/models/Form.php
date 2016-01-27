@@ -23,6 +23,7 @@ class Form extends \yii\db\ActiveRecord
 {
     public $new_status_list = [-1=>'取消',0=>'未确认',1=>'确认'];
     public $type_list = [1=>'展会报名',2=>'预约翻新',3=>'翻新问答',4=>'报名展会'];
+    public $type_list_1 = [1=>'展会报名',4=>'活动报名'];
     /**
      * @inheritdoc
      */
