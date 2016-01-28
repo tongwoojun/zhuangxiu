@@ -63,13 +63,12 @@ textarea{vertical-align: top;}
 .tn-person-r a{padding:0 15px;color:#7f7f7f;}
 .tn-person-r a:hover{color:#e7340c;}
 .top_sub{height:120px;}
-.logo{
-	display:block;
-	width:185px;
-	height:69px;
+.logo{display:block;
+	width:252px;
+	height:71px;
 	background: url(../images/logo.png) no-repeat;
 	left:0;
-	top:32px;
+	top:31px;
 }
 .search_combobox{
 	left:316px;

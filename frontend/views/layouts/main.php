@@ -49,7 +49,7 @@ AppAsset::register($this);
             <span>
                 <a href="#" class="weixin">
 					<img src="<?=Yii::$app->request->baseUrl;?>/images/wx.png" width="16" />
-					<span><img src="<?=Yii::$app->request->baseUrl;?>/images/150729_bg06.jpg" width="94"></span>
+					<span><img src="<?=Yii::$app->request->baseUrl;?>/images/150826_img04.jpg" width="94"></span>
 				</a>
                 <a href="#"><img src="<?=Yii::$app->request->baseUrl;?>/images/sina.png" width="16" /></a>
             </span>

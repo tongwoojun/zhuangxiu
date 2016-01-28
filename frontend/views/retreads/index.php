@@ -23,6 +23,7 @@ $this->title = '翻新套餐 - 翻新装潢网 - 佳园装潢官网';
         <div class="in_fxtc">
             <div class="in_module_header">
                 <a href="<?=Url::to(['retreads/list']);?>"><span>翻新套餐</span></a>
+				<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a>
             </div>
             <ul>
                 <?php foreach($package as $key=>$value){$num=$key+1;?>

@@ -179,13 +179,13 @@
 .index_xgt a.index_xgt_five{width: 228px; height: 340px; left:972px; top:0;}
 .in_fxxc_gzxgt{
 	background:#eaeaea;
-	padding:10px 0 10px 55px;
+	padding:10px 0 10px 60px;
 	margin-bottom:40px;	
 }
 .in_fxxc_gzxgt ul li{
 	float:left;
 	width:120px;
-	margin-right:74px;
+	margin-right:70px;
 	line-height:30px;
 	font-size:14px;
 	text-align:center;
@@ -553,7 +553,7 @@ a.ask_side_btn:hover{color:#fff;}
 }
 .fx_packages_info:hover .fx_packages_sum{ display:block;}
 .fx_packages_info .fx_packages_bg{background:url(../images/150921_bg02.png) repeat;
-	display:block;
+	display:none;
 	width:362px;
 	height:227px;
 	display:block;

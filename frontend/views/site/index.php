@@ -65,6 +65,7 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 <div class="in_fxlc">
 	<div class="in_module_header">
         <a href="<?=Url::to(['retreads/list']);?>" target="_blank"><span>翻新流程</span></a>
+		<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a>
     </div>
 	<ul class="in_fxlc_list">
         <?php foreach(Yii::$app->view->params['ads'][3] as $value){?>
@@ -86,6 +87,7 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 <div class="in_fxtc">
 	<div class="in_module_header">
         <a href="<?=Url::to(['retreads/list']);?>" target="_blank"><span>翻新套餐</span></a>
+		<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a>
     </div>
 	<ul>
         <?php foreach($package as $key=>$value){$num=$key+1;?>
@@ -112,6 +114,7 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 	<div class="in_module_header">
         <a href="<?=Url::to(['scene/index']);?>" target="_blank"><span>翻新现场</span></a>
         <em><b>597</b>个工地正在翻新</em>
+		<a href="<?=Url::to(['scene/index']);?>" class="pa more" target="_blank"></a>
     </div>
 	<div class="index_xgt">
         <?php foreach(Yii::$app->view->params['ads'][6] as $key=>$value){
