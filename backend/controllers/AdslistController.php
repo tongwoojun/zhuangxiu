@@ -119,20 +119,18 @@ class AdslistController extends Controller
             $model->mkFolder($folder);
 
             $img = UploadedFile::getInstance($model, 'img');
+            $model->img = $model->oldAttributes['img'];
             if($img){
                 if(!$model->oldAttributes['img']){
                     $model->img = $folder."/img_" . time() . '.' . $img->extension;
-                }else{
-                    $model->img = $model->oldAttributes['img'];
                 }
             }
 
             $flash = UploadedFile::getInstance($model, 'flash');
+            $model->flash = $model->oldAttributes['flash'];
             if($flash){
                 if(!$model->oldAttributes['flash']){
                     $model->flash = $folder ."/fla_" . time() . '.' . $flash->extension;
-                }else{
-                    $model->flash = $model->oldAttributes['flash'];
                 }
             }
 

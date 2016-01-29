@@ -15,7 +15,7 @@ use yii\helpers\Html;
             <img src="<?=Yii::$app->params['imgurl'];?><?=$model->img;?>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
             </a>
         <?php }elseif($model->type==2){?>
-            <p>描述：<?=$model->desc;?></p>
+            <?=$model->desc;?>
         <?php }elseif($model->type==3){?>
             <a href="<?=$model->url;?>" class="thumbnail">
                 <embed src="<?=Yii::$app->params['imgurl'] . $model->flash;?>" type="application/x-shockwave-flash" style="height: 200px; width: 100%; display: block;" quality="high" />
