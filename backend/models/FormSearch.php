@@ -83,7 +83,9 @@ class FormSearch extends Form
         unset($this->type_list[49]);
         unset($this->type_list[50]);
 
-        $query = Form::find()->where(['type'=>$this->type_list])->orderBy('id desc');
+        $list = array_flip($this->type_list);
+
+        $query = Form::find()->where(['type'=>$list])->orderBy('id desc');
 
         // add conditions that should always apply here
 
