@@ -54,7 +54,7 @@ class QaController extends FrontendController{
     public function actionAsk(){
         $model = new AskForm();
         if ($model->load(Yii::$app->request->post())) {
-            $model->type = 3;
+            $model->type = 50;
             $model->ip = Yii::$app->request->userIP;
             if($model->save()){
                 Yii::$app->getSession()->setFlash('success', '问题提交成功！');

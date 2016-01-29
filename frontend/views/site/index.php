@@ -11,7 +11,7 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
     <div class="errors tc" id="errors_msg"></div>
     <form id="form_1" action="<?=Url::to(['site/ajaxform']);?>" method="post">
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>">
-        <input type="hidden" name="Form[type]" value="1">
+        <input type="hidden" name="Form[type]" value="48">
         <table border="0" cellspacing="0" cellpadding="0" width="100%">
             <tr>
                 <td width="93" align="right">姓名：</td>
