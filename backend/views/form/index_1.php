@@ -21,9 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             [
                 'attribute' => 'type',
-                'filter' => $searchModel->type_list_1,
+                'filter' => $searchModel->type_list,
                 'value'=> function($data){
-                    return $data->type_list_1[$data->type];
+                    return $data->type_list[$data->type];
                 },
             ],
             'name',

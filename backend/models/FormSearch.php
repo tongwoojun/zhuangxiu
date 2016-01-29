@@ -80,10 +80,10 @@ class FormSearch extends Form
 
     public function newsearch($params)
     {
-        $key = Key::getData('action');
-        $this->type_list_1 = $key['action'];
+        unset($this->type_list[49]);
+        unset($this->type_list[50]);
 
-        $query = Form::find()->where(['type'=>[1,4]])->orderBy('id desc');
+        $query = Form::find()->where(['type'=>[48,51]])->orderBy('id desc');
 
         // add conditions that should always apply here
 
