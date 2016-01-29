@@ -33,36 +33,52 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 
-    <div id ='img' style="display: none">
-        <div class="row">
-            <div class="col-lg-6">
-                <?php
-                if(!$model->isNewRecord){
-                    if($model->img) {
-                        echo Html::img(Yii::$app->params['imgurl'] . $model->img, ['height' => 120]);
-                        echo "<br>";
-                    }
-                    echo $form->field($model, 'img')->fileInput();
-                }else {
-                    echo $form->field($model, 'img')->fileInput();
-                }?>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2">
-                <?= $form->field($model, 'img_width')->textInput()->hint("px结尾"); ?>
-            </div>
-
-            <div class="col-lg-2">
-                <?= $form->field($model, 'img_height')->textInput()->hint("px结尾"); ?>
-            </div>
+    <!-- 文字 -->
+    <div class="row type_list" id ='txt' style="<?=($model->type)!=2?'display: none':'';?>">
+        <div class="col-lg-10">
+            <?= $form->field($model, 'desc')->widget("pjkui\kindeditor\KindEditor",['clientOptions'=>['allowFileManager'=>'true','allowUpload'=>'true']]) ?>
         </div>
     </div>
 
-    <div class="row" id ='txt' style="display: none">
-        <div class="col-lg-11">
-            <?= $form->field($model, 'desc')->widget("pjkui\kindeditor\KindEditor",['clientOptions'=>['allowFileManager'=>'true','allowUpload'=>'true']]) ?>
+    <!-- 图片 -->
+    <div class="row type_list" id ='img' style="<?=($model->type)!=1?'display: none':'';?>">
+        <div class="col-lg-10">
+            <?php
+            echo $form->field($model, 'img')->fileInput();
+            if(!$model->isNewRecord){
+                if($model->img) {
+                    echo '<label class="control-label" for="adslist-img">（图片显示）</label>';
+                    echo '<div class="form-group">';
+                    echo Html::img(Yii::$app->params['imgurl'] . $model->img, ['width' => $model->img_width,'height' => $model->img_height]);
+                    echo "</div>";
+                }
+            }?>
+        </div>
+    </div>
+
+    <!-- FLASH -->
+    <div class="row type_list" id ='flash' style="<?=($model->type)!=3?'display: none':'';?>">
+        <div class="col-lg-10">
+            <?php
+            echo $form->field($model, 'flash')->fileInput();
+            if(!$model->isNewRecord){
+                if($model->flash) {
+                    echo '<label class="control-label" for="adslist-img">（flash显示）</label>';
+                    echo '<div class="form-group">';
+                    echo '<embed src="'.Yii::$app->params['imgurl'] . $model->flash.'" type="application/x-shockwave-flash" width="'.$model->img_width.'" height="'.$model->img_height.'" quality="high" />';
+                    echo "</div>";
+                }
+            }?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2">
+            <?= $form->field($model, 'img_width')->textInput()->hint("px结尾"); ?>
+        </div>
+
+        <div class="col-lg-2">
+            <?= $form->field($model, 'img_height')->textInput()->hint("px结尾"); ?>
         </div>
     </div>
 
@@ -101,3 +117,18 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+<script>
+$(function(){
+    $("#adslist-type").change(function(){
+        var selt = $(this).children('option:selected').val();
+        $('.type_list').hide();
+        if(selt == 1){
+            $('#img').show();
+        }else if(selt == 2){
+            $('#txt').show();
+        }else if(selt == 3){
+            $('#flash').show();
+        }
+    })
+});
+</script>

@@ -27,6 +27,15 @@ class AdslistController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'Kupload' => [
+                'class' => 'pjkui\kindeditor\KindEditorAction',
+            ]
+        ];
+    }
+
     /**
      * Lists all Adslist models.
      * @return mixed
@@ -64,13 +73,26 @@ class AdslistController extends Controller
         $model = new Adslist();
         $model->aid = $aid;
         if ($model->load(Yii::$app->request->post())) {
+
+            $folder = "/uploads/ads/".date('Ym');
+            $model->mkFolder($folder);
+
             $img = UploadedFile::getInstance($model, 'img');
             if($img) {
-                $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
+                $model->img = $folder."/img_" .time().'.'.$img->extension;
             }
+
+            $flash = UploadedFile::getInstance($model, 'flash');
+            if($flash) {
+                $model->flash = $folder."/fla_" . time() . '.' . $flash->extension;
+            }
+
             if ($model->save()) {
                 if($img){
                     $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+                }
+                if($flash){
+                    $flash->saveAs(Yii::$app->params['uploadDir'].$model->flash);
                 }
                 return $this->redirect(['ads/view', 'id' => $model->aid]);
             }
@@ -91,20 +113,35 @@ class AdslistController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldimg = $model->oldAttributes['img'];
 
         if ($model->load(Yii::$app->request->post())) {
+            $folder = "/uploads/ads/".date('Ym');
+            $model->mkFolder($folder);
+
             $img = UploadedFile::getInstance($model, 'img');
-            $model->img = $oldimg;
             if($img){
                 if(!$model->oldAttributes['img']){
-                    $model->img = "/uploads/ads/ads_" . time() . '.' . $img->extension;
+                    $model->img = $folder."/img_" . time() . '.' . $img->extension;
+                }else{
+                    $model->img = $model->oldAttributes['img'];
+                }
+            }
+
+            $flash = UploadedFile::getInstance($model, 'flash');
+            if($flash){
+                if(!$model->oldAttributes['flash']){
+                    $model->flash = $folder ."/fla_" . time() . '.' . $flash->extension;
+                }else{
+                    $model->flash = $model->oldAttributes['flash'];
                 }
             }
 
             if ($model->save()) {
                 if($img){
                     $img->saveAs(Yii::$app->params['uploadDir'].$model->img);
+                }
+                if($flash){
+                    $flash->saveAs(Yii::$app->params['uploadDir'].$model->flash);
                 }
                 return $this->redirect(['ads/view', 'id' => $model->aid]);
             }

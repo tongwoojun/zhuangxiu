@@ -43,4 +43,13 @@ class Models extends \yii\db\ActiveRecord{
 		]);
 		return $dataProvider; 
     }
+
+
+    function mkFolder($path)
+    {
+        $path = Yii::$app->params['uploadDir'].$path;
+        if(!is_readable($path)){
+            is_file($path) or mkdir($path,0750);
+        }
+    }
 }
