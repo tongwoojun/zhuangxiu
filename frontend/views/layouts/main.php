@@ -4,6 +4,7 @@
 /* @var $content string */
 use yii\helpers\Url;
 use yii\helpers\Html;
+use frontend\assets\Temp;
 use frontend\assets\AppAsset;
 
 AppAsset::register($this);
@@ -27,13 +28,13 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="header">
+    <!--->
     <?php if(isset(Yii::$app->view->params['ads'][1])){?>
     <div class="p_w">
-        <?php foreach(Yii::$app->view->params['ads'][1] as $value){?>
-        <a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1200" style="display:block;" alt ="<?=Url::to($value['name']);?>"/></a>
-        <?php }?>
+        <?php echo Temp::adTemp(Yii::$app->view->params['ads'][1], 1);?>
     </div>
     <?php } ?>
+
     <div class="top_nav f14">
         <div class="p_w">
             <span class="fr tn-person-r">
@@ -98,22 +99,10 @@ AppAsset::register($this);
     <div class="p_w">
         <div class="firend_link fl">
             <div class="link_tit">友情链接</div>
-            <div class="link_list">
-                <a href="#">上海室内装饰行业协会</a>
-                <a href="#">安居客</a>
-                <a href="#">新浪家居</a>
-                <a href="#">上海建材信息网</a>
-                <a href="#">上海315网</a>
-                <a href="#">卡铂电器</a>
-                <a href="#">能率中国</a>
-                <a href="#">申同吊顶</a>
-                <a href="#">晨阳水漆</a>
-                <a href="#">上海房产网</a>
-                <a href="#">上海二手房</a>
-                <a href="#">上海装修公司</a>
-                <a href="#">上海房产网</a>
-                <a href="#">上海家政</a>
-            </div>
+            <!--ads_9-->
+            <?php if(isset(Yii::$app->view->params['ads'][9])) {
+                echo Temp::adTemp(Yii::$app->view->params['ads'][9], 9);
+            }?>
         </div>
         
         <div class="firend_nav fl">

@@ -1,7 +1,9 @@
 <?php
 use \yii\helpers\Url;
 use \yii\helpers\Html;
+use frontend\assets\Temp;
 use yii\helpers\StringHelper;
+
 $this->title = '翻新装潢网 - 佳园装潢网首页';
 ?>
 <?= $this->registerJsFile('@web/js/swiper.min.js',['position' => \yii\web\View::POS_HEAD])?>
@@ -39,6 +41,8 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 </div>
 <div class="in_show fr">
 	<div class="swiper-container" id="playBox">
+
+        <!--ads_2-->
         <?php if(isset(Yii::$app->view->params['ads'][2])){ ?>
         <div class="smalltitle">
             <ul>
@@ -48,19 +52,16 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
             </ul>
         </div>
         <ul class="oUlplay">
-            <?php foreach(Yii::$app->view->params['ads'][2] as $value){?>
-            <li>
-                <a href="<?=$value['url'];?>" target="_blank">
-                    <img src="<?=Yii::$app->request->baseUrl.$value['img'];?>">
-                </a>
-            </li>
-            <?php }?>
+            <?php echo Temp::adTemp(Yii::$app->view->params['ads'][2], 2);?>
         </ul>
         <?php }?>
+
 	</div>
     <script src="<?=Yii::$app->request->baseUrl;?>/js/lunbo.js" type="text/javascript"></script>
 </div>
 <div class="clearfix"></div>
+
+<!--ads_3-->
 <?php if(isset(Yii::$app->view->params['ads'][3])){ ?>
 <div class="in_fxlc">
 	<div class="in_module_header">
@@ -68,20 +69,16 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 		<a href="<?=Url::to(['retreads/list']);?>" class="pa more" target="_blank"></a>
     </div>
 	<ul class="in_fxlc_list">
-        <?php foreach(Yii::$app->view->params['ads'][3] as $value){?>
-		<li>
-			<a href="<?=$value['url'];?>">
-                <?=$value['desc'];?>
-			</a>
-		</li>
-        <?php }?>
+        <?php echo Temp::adTemp(Yii::$app->view->params['ads'][3], 3);?>
 	</ul>
 	<div class="clearfix"></div>
 </div>
 <?php }?>
-<?php if(isset(Yii::$app->view->params['ads'][4])){ ?>
-<div class="in_bill"><img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][4][0]['img'];?>" width="1198" height="98" alt="<?=Yii::$app->view->params['ads'][4][0]['name'];?>"/></a></div>
-<?php }?>
+
+<!--ads_4-->
+<?php if(isset(Yii::$app->view->params['ads'][4])) {
+    echo Temp::adTemp(Yii::$app->view->params['ads'][4], 4);
+}?>
 
 <?php if(isset($package)){ ?>
 <div class="in_fxtc">
@@ -105,11 +102,14 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 </div>
 <?php }?>
 
-<?php if(isset(Yii::$app->view->params['ads'][17])){ foreach(Yii::$app->view->params['ads'][17] as $key=>$value){?>
-    <div class="in_bill"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
-<?php }}?>
+<!--ads_17-->
+<?php if(isset(Yii::$app->view->params['ads'][17])) {
+    echo Temp::adTemp(Yii::$app->view->params['ads'][17], 4);
+}?>
 
 <div class="in_fxxc">
+
+    <!--ads_6-->
     <?php if(isset(Yii::$app->view->params['ads'][6])){ ?>
 	<div class="in_module_header">
         <a href="<?=Url::to(['scene/index']);?>" target="_blank"><span>翻新现场</span></a>
@@ -117,29 +117,29 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 		<a href="<?=Url::to(['scene/index']);?>" class="pa more" target="_blank"></a>
     </div>
 	<div class="index_xgt">
-        <?php foreach(Yii::$app->view->params['ads'][6] as $key=>$value){
-            $list = ['index_xgt_one','index_xgt_two','index_xgt_three','index_xgt_four','index_xgt_five'];
+        <?php
+        $list = ['index_xgt_one', 'index_xgt_two', 'index_xgt_three', 'index_xgt_four', 'index_xgt_five'];
+        echo Temp::adTemp(Yii::$app->view->params['ads'][6], 6, $list);
         ?>
-            <a href="<?=$value['url'];?>" target="_blank" class="<?=$list[$key];?>">
-                <img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" alt="<?=$value['name'];?>" class="lazy">
-            </a>
-        <?php }?>
     </div>
     <?php }?>
+
+    <!--ads_7-->
     <?php if(isset(Yii::$app->view->params['ads'][7])){ ?>
 	<div class="in_fxxc_gzxgt">
 		<ul>
-            <?php foreach(Yii::$app->view->params['ads'][7] as $key=>$value){?>
-                <li><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="120" alt="<?=$value['name'];?>" /><?=$value['name'];?></a></li>
-            <?php }?>
+            <?php echo Temp::adTemp(Yii::$app->view->params['ads'][7], 7);?>
 		</ul>
 		<div class="clearfix"></div>
 	</div>
     <?php }?>
+
 </div>
-<?php if(isset(Yii::$app->view->params['ads'][8])){ foreach(Yii::$app->view->params['ads'][8] as $key=>$value){?>
-    <div class="in_fxtc"><a href="<?=$value['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.$value['img'];?>" width="1198" height="98" alt="<?=$value['name'];?>" style="display:block;"/></a></div>
-<?php }}?>
+
+<!--ads_8-->
+<?php if(isset(Yii::$app->view->params['ads'][8])) {
+    echo Temp::adTemp(Yii::$app->view->params['ads'][8], 8);
+}?>
 
 <div >
 	<div class="in_news fl">
@@ -148,14 +148,12 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 			<a href="<?=Url::to(['trends/index']);?>" class="pa more" target="_blank"></a>
 		</div>
 		<dl class="in_news_list border-all">
-            <?php if(isset(Yii::$app->view->params['ads'][14])){ ?>
-			<dt>
-				<a href="<?=Yii::$app->view->params['ads'][14][0]['url'];?>"  target="_blank">
-					<img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][14][0]['img'];?>" width="420" height="300" />
-					<span><?=Yii::$app->view->params['ads'][14][0]['name'];?></span>
-				</a>
-			</dt>
-            <?php }?>
+
+            <!--ads_14-->
+            <?php if(isset(Yii::$app->view->params['ads'][14])) {
+                echo Temp::adTemp(Yii::$app->view->params['ads'][14], 14);
+            }?>
+
 			<dd>
 				<ul>
                     <?php if($trends_data[3]){foreach($trends_data[3] as $key=>$value){ ?>

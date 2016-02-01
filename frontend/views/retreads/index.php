@@ -8,16 +8,19 @@
 
 use \yii\helpers\Url;
 use \yii\helpers\Html;
+use frontend\assets\Temp;
 use yii\helpers\StringHelper;
+
 $this->title = '翻新套餐 - 翻新装潢网 - 佳园装潢官网';
 ?>
 <div class="p_w">
     <div class="in_module_header">
         <span>推荐套餐</span>
     </div>
-    <?php if(isset(Yii::$app->view->params['ads'][12])){ ?>
-    <div class="in_bill"><a href="<?=Yii::$app->view->params['ads'][12][0]['url'];?>" target="_blank"><img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][12][0][img];?>" width="1198" height="394"></a></div>
-    <?php }?>
+    <!--ads_12-->
+    <?php if(isset(Yii::$app->view->params['ads'][12])) {
+        echo Temp::adTemp(Yii::$app->view->params['ads'][12], 4);
+    }?>
 
     <?php if(isset($package)){ ?>
         <div class="in_fxtc">
@@ -47,13 +50,7 @@ $this->title = '翻新套餐 - 翻新装潢网 - 佳园装潢官网';
                 <span>翻新流程</span>
             </div>
             <ul class="in_fxlc_list">
-                <?php foreach(Yii::$app->view->params['ads'][3] as $value){?>
-                    <li>
-                        <a href="<?=$value['url'];?>">
-                            <?=$value['desc'];?>
-                        </a>
-                    </li>
-                <?php }?>
+                <?php echo Temp::adTemp(Yii::$app->view->params['ads'][3], 3);?>
             </ul>
             <div class="clearfix"></div>
         </div>

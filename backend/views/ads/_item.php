@@ -20,6 +20,11 @@ use yii\helpers\Html;
             <a href="<?=$model->url;?>" class="thumbnail">
                 <embed src="<?=Yii::$app->params['imgurl'] . $model->flash;?>" type="application/x-shockwave-flash" style="height: 200px; width: 100%; display: block;" quality="high" />
             </a>
+        <?php }elseif($model->type==4){?>
+            <a href="<?=$model->url;?>" class="thumbnail">
+                <img src="<?=Yii::$app->params['imgurl'];?><?=$model->img;?>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+                <?=$model->name;?>
+            </a>
         <?php }?>
         <div class="caption">
             <h3><?=$model->name;?></h3>

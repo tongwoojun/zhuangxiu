@@ -37,7 +37,7 @@ class Adslist extends Models
     public function rules()
     {
         return [
-            [['aid', 'name'], 'required'],
+            [['aid', 'name', 'img_width', 'img_height'], 'required'],
             [['aid', 'type', 'sort', 'status'], 'integer'],
             [['desc'], 'string'],
             [['stime', 'etime'], 'safe'],
@@ -86,9 +86,9 @@ class Adslist extends Models
     }
 
     public static function getData(){
-        $data = [];
-        $time = date('Y-m-d');
-        $sql = "select * from zx_ads_list where status =1 and (stime is null or stime < '".$time."') and (etime is null or etime > '".$time."')";
+        $data  = [];
+        $time  = date('Y-m-d');
+        $sql   = "select b.* from zx_ads a join zx_ads_list b on a.id = b.aid where a.status = 1 and b.status =1 and (b.stime is null or b.stime < '".$time."') and (b.etime is null or b.etime > '".$time."')";
         $model = self::findBySql($sql)->orderBy('sort')->all();
         if($model){
             foreach($model as $value){

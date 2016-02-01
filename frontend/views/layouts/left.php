@@ -7,13 +7,10 @@
  */
 use \yii\helpers\Url;
 use \yii\helpers\Html;
+use frontend\assets\Temp;
 
-use common\models\Qa;
 use common\models\Key;
-use common\models\Scene;
-use common\models\Trends;
 use common\models\Package;
-use yii\helpers\StringHelper;
 
 if(in_array(1,$left_list)){
     $list = Key::getData('type');
@@ -106,13 +103,9 @@ if(in_array(2,$left_list)){
 
 <?php if(in_array(3,$left_list)){
     if(isset(Yii::$app->view->params['ads'][16])){
-        foreach(Yii::$app->view->params['ads'][16] as $key=> $value){ ?>
-            <div class="con_right_bill mb20">
-                <a href="<?=$value['url'];?>" target="_blank">
-                    <img src="<?=Yii::$app->request->baseUrl.$value['img'];?>"  width="397" height="280" />
-                </a>
-            </div>
-<?php }}}?>
+        echo Temp::adTemp(Yii::$app->view->params['ads'][16], 16);
+    }
+}?>
 
 <?php if(in_array(4,$left_list)){
     $models = Scene::getHot(5);

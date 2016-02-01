@@ -12,14 +12,9 @@ $this->title = '佳园动态 - 翻新装潢网 - 佳园装潢官网';
 
     <div class="new_main">
         <dl class="in_news_list border-all">
-            <?php if(isset(Yii::$app->view->params['ads'][14])){ ?>
-                <dt>
-                    <a href="<?=Yii::$app->view->params['ads'][14][0]['url'];?>"  target="_blank">
-                        <img src="<?=Yii::$app->request->baseUrl.Yii::$app->view->params['ads'][14][0]['img'];?>" width="420" height="300" />
-                        <span><?=Yii::$app->view->params['ads'][14][0]['name'];?></span>
-                    </a>
-                </dt>
-            <?php }?>
+            <?php if(isset(Yii::$app->view->params['ads'][14])) {
+                echo Temp::adTemp(Yii::$app->view->params['ads'][14], 14);
+            }?>
             <dd>
                 <ul>
                     <?php if(isset($data['1'])){foreach($data['1'] as $key=>$value){ if($key>5){ continue;}?>
