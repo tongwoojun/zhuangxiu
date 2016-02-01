@@ -31,13 +31,21 @@ class Temp{
             }elseif ($type == 3) {
                 $result .= '<li><a href="' . $value['url'] . '" target="_blank">'.$value['desc'].'</a></li>';
             }elseif ($type == 4) {
-                $result .= '<div class="in_bill"><a href="' . $value['url'] . '" target="_blank"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a></div>';
+                if($value['type'] == 1){
+                    $result .= '<div class="in_bill"><a href="' . $value['url'] . '" target="_blank"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a></div>';
+                }elseif($value['type'] == 3){
+                    $result .= '<div class="in_bill"><a href="' . $value['url'] . '" target="_blank"><embed src="' . $value->flash . '" type="application/x-shockwave-flash" width="' . $value->img_width . '" height="' . $value->img_height . '" quality="high" /></a></div>';
+                }
             }elseif ($type == 6) {
                 $result .= '<a href="' . $value['url'] . '" target="_blank" class="'.$params[$key].'"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" class="lazy" /></a>';
             }elseif ($type == 7) {
                 $result .= '<li><a href="' . $value['url'] . '" target="_blank" class="'.$params[$key].'"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" />'.$value['name'].'</a></li>';
             }elseif ($type == 8) {
-                $result .= '<div class="in_fxtc"><a href="' . $value['url'] . '" target="_blank"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a></div>';
+                if($value['type'] == 1){
+                    $result .= '<div class="in_fxtc"><a href="' . $value['url'] . '" target="_blank"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a></div>';
+                }elseif($value['type'] == 3){
+                    $result .= '<div class="in_fxtc"><a href="' . $value['url'] . '" target="_blank"><embed src="' . $value->flash . '" type="application/x-shockwave-flash" width="' . $value->img_width . '" height="' . $value->img_height . '" quality="high" /></a></div>';
+                }
             }elseif ($type == 9) {
                 $result .= $value['desc'];
             }elseif ($type == 10) {
