@@ -33,7 +33,7 @@ class Temp{
                 if($value['type'] == 1){
                     $result .= '<div class="in_bill"><a href="' . $value['url'] . '" target="_blank"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a></div>';
                 }elseif($value['type'] == 3){
-                    $result .= '<div class="in_bill"><a href="' . $value['url'] . '" target="_blank"><embed src="' . $value->flash . '" type="application/x-shockwave-flash" width="' . $value->img_width . '" height="' . $value->img_height . '" quality="high" /></a></div>';
+                    $result .= '<div class="in_bill"><a href="' . $value['url'] . '" target="_blank"><embed src="' . Yii::$app->request->baseUrl . $value['flash']. '" type="application/x-shockwave-flash" width="' . $value['img_width'] . '" height="' . $value['img_height']  . '" quality="high" /></a></div>';
                 }
             }elseif ($type == 6) {
                 $result .= '<a href="' . $value['url'] . '" target="_blank" class="'.$params[$key].'"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" class="lazy" /></a>';
@@ -43,7 +43,7 @@ class Temp{
                 if($value['type'] == 1){
                     $result .= '<div class="in_fxtc"><a href="' . $value['url'] . '" target="_blank"><img src="' . Yii::$app->request->baseUrl . $value['img'] . '" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a></div>';
                 }elseif($value['type'] == 3){
-                    $result .= '<div class="in_fxtc"><a href="' . $value['url'] . '" target="_blank"><embed src="' . $value->flash . '" type="application/x-shockwave-flash" width="' . $value->img_width . '" height="' . $value->img_height . '" quality="high" /></a></div>';
+                    $result .= '<div class="in_fxtc"><a href="' . $value['url'] . '" target="_blank"><embed src="' . Yii::$app->request->baseUrl . $value['flash'] . '" type="application/x-shockwave-flash" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" quality="high" /></a></div>';
                 }
             }elseif ($type == 9) {
                 $result .= $value['desc'];
