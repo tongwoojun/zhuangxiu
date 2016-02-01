@@ -9,8 +9,12 @@ use \yii\helpers\Url;
 use \yii\helpers\Html;
 use frontend\assets\Temp;
 
+use common\models\Qa;
 use common\models\Key;
+use common\models\Scene;
+use common\models\Trends;
 use common\models\Package;
+use yii\helpers\StringHelper;
 
 if(in_array(1,$left_list)){
     $list = Key::getData('type');
