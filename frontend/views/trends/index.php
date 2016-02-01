@@ -1,7 +1,9 @@
 <?php
 /* @var $this yii\web\View */
 use yii\helpers\Url;
+use frontend\assets\Temp;
 use yii\helpers\StringHelper;
+
 $this->title = '佳园动态 - 翻新装潢网 - 佳园装潢官网';
 ?>
 <div class="p_w">

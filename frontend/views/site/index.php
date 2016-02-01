@@ -108,7 +108,6 @@ $this->title = '翻新装潢网 - 佳园装潢网首页';
 }?>
 
 <div class="in_fxxc">
-
     <!--ads_6-->
     <?php if(isset(Yii::$app->view->params['ads'][6])){ ?>
 	<div class="in_module_header">
