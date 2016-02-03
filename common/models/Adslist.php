@@ -22,7 +22,7 @@ use yii\base\Model;
  */
 class Adslist extends Models
 {
-    public $type_list = [1=>'图片',2=>'文字',3=>'FLASH'];
+    public $type_list = [1=>'图片',2=>'文字',3=>'FLASH',4=>'图片+文字'];
     /**
      * @inheritdoc
      */

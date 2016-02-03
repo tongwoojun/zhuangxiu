@@ -128,6 +128,9 @@ $(function(){
             $('#txt').show();
         }else if(selt == 3){
             $('#flash').show();
+        }else if(selt == 4){
+            $('#img').show();
+            $('#txt').show();
         }
     })
 });
