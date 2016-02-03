@@ -25,7 +25,7 @@ $this->title = '佳园动态 - 翻新装潢网 - 佳园装潢官网';
                             <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><img src="<?=Url::to([$value['img']]);?>" width="140" /></a>
                         </div>
                         <div class="in_news_info">
-                            <h3><a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=$value['title'];?></a></h3>
+                            <h3><a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],20);?></a></h3>
                             <p><?=StringHelper::truncate($value['desc'],35);?></p>
                         </div>
                     </li>
