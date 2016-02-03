@@ -19,17 +19,9 @@ $this->title = '佳园动态 - 翻新装潢网 - 佳园装潢官网';
             }?>
             <dd>
                 <ul>
-                    <?php if(isset($data['1'])){foreach($data['1'] as $key=>$value){ if($key>5){ continue;}?>
-                    <li>
-                        <div class="in_news_pic">
-                            <a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><img src="<?=Url::to([$value['img']]);?>" width="140" /></a>
-                        </div>
-                        <div class="in_news_info">
-                            <h3><a href="<?=Url::to(['trends/detail','id'=>$value['id']]);?>"><?=StringHelper::truncate($value['title'],20);?></a></h3>
-                            <p><?=StringHelper::truncate($value['desc'],35);?></p>
-                        </div>
-                    </li>
-                    <?php }}?>
+                    <?php if(isset(Yii::$app->view->params['ads'][18])) {
+                        echo Temp::adTemp(Yii::$app->view->params['ads'][18], 18);
+                    }?>
                 </ul>
             </dd>
             <div class="clearfix"></div>
