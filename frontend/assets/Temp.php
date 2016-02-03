@@ -74,6 +74,16 @@ class Temp{
                                     <img src="'.Yii::$app->request->baseUrl.$value['img'].'" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '"/>
                                 </a>
                             </div>';
+            }elseif ($type == 18) {
+                $result .= '<li>
+                                <div class="in_news_pic">
+                                    <a href="'.$value['url'].'" target="_blank"><img src="'. Yii::$app->request->baseUrl . $value['img'] .'" width="' . $value['img_width'] . '" height="' . $value['img_height'] . '" alt ="' . $value['name'] . '" /></a>
+                                </div>
+                                <div class="in_news_info">
+                                    <h3><a href="'.$value['url'].'">' . StringHelper::truncate($value['name'],13) . '</a></h3>
+                                    <p>'.StringHelper::truncate($value['desc'],35,'...',null,true).'</p>
+                                </div>
+                            </li>';
             }
 
             /*elseif ($type == 2) {

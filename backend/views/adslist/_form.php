@@ -33,15 +33,8 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 
-    <!-- 文字 -->
-    <div class="row type_list" id ='txt' style="<?=($model->type)!=2?'display: none':'';?>">
-        <div class="col-lg-10">
-            <?= $form->field($model, 'desc')->widget("pjkui\kindeditor\KindEditor",['clientOptions'=>['allowFileManager'=>'true','allowUpload'=>'true']]) ?>
-        </div>
-    </div>
-
     <!-- 图片 -->
-    <div class="row type_list" id ='img' style="<?=($model->type)!=1?'display: none':'';?>">
+    <div class="row type_list" id ='img' style="<?=in_array($model->type,[1,4])?'display: none':'';?>">
         <div class="col-lg-10">
             <?php
             echo $form->field($model, 'img')->fileInput();
@@ -53,6 +46,13 @@ use yii\widgets\ActiveForm;
                     echo "</div>";
                 }
             }?>
+        </div>
+    </div>
+
+    <!-- 文字 -->
+    <div class="row type_list" id ='txt' style="<?=in_array($model->type,[2,4])?'display: none':'';?>">
+        <div class="col-lg-10">
+            <?= $form->field($model, 'desc')->widget("pjkui\kindeditor\KindEditor",['clientOptions'=>['allowFileManager'=>'true','allowUpload'=>'true']]) ?>
         </div>
     </div>
 
